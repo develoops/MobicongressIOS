@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="JVV-U0-lN4">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <scenes>
+        <!--Launch View Controller-->
+        <scene sceneID="1LQ-x0-ORp">
+            <objects>
+                <viewController storyboardIdentifier="launch" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JVV-U0-lN4" customClass="MCLaunchViewController" customModule="MobicongressIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="D9g-1f-1el"/>
+                        <viewControllerLayoutGuide type="bottom" id="RA0-8H-TG7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="R19-9p-n2Y">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bSl-nl-vXj">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="RA0-8H-TG7" firstAttribute="top" secondItem="bSl-nl-vXj" secondAttribute="bottom" id="10T-hN-BWT"/>
+                            <constraint firstItem="bSl-nl-vXj" firstAttribute="top" secondItem="R19-9p-n2Y" secondAttribute="top" id="Hw6-bZ-qy3"/>
+                            <constraint firstAttribute="trailing" secondItem="bSl-nl-vXj" secondAttribute="trailing" id="ZnB-qI-eEe"/>
+                            <constraint firstAttribute="bottom" secondItem="bSl-nl-vXj" secondAttribute="bottom" id="aRn-4B-feC"/>
+                            <constraint firstItem="bSl-nl-vXj" firstAttribute="leading" secondItem="R19-9p-n2Y" secondAttribute="leading" id="faT-h2-07h"/>
+                            <constraint firstItem="bSl-nl-vXj" firstAttribute="top" secondItem="D9g-1f-1el" secondAttribute="bottom" id="yzo-rY-c0N"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="yzo-rY-c0N"/>
+                                <exclude reference="10T-hN-BWT"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="imagen" destination="bSl-nl-vXj" id="l47-wk-Jka"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3YV-O6-YYz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="143" y="-498"/>
+        </scene>
+        <!--Splash View Controller-->
+        <scene sceneID="Cbm-Oh-9Kq">
+            <objects>
+                <viewController storyboardIdentifier="splash" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Sa7-Xp-DnQ" customClass="MCSplashViewController" customModule="MobicongressIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zkX-Z3-2ge"/>
+                        <viewControllerLayoutGuide type="bottom" id="P2E-m2-Uzh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CGf-iD-Nq9">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b2j-ou-0Wh">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="b2j-ou-0Wh" firstAttribute="leading" secondItem="CGf-iD-Nq9" secondAttribute="leading" id="61w-dJ-gfb"/>
+                            <constraint firstItem="b2j-ou-0Wh" firstAttribute="top" secondItem="zkX-Z3-2ge" secondAttribute="bottom" id="7k3-uI-p6o"/>
+                            <constraint firstItem="b2j-ou-0Wh" firstAttribute="top" secondItem="CGf-iD-Nq9" secondAttribute="top" id="MK9-RI-3Gj"/>
+                            <constraint firstItem="P2E-m2-Uzh" firstAttribute="top" secondItem="b2j-ou-0Wh" secondAttribute="bottom" id="TRE-DB-Fpc"/>
+                            <constraint firstAttribute="trailing" secondItem="b2j-ou-0Wh" secondAttribute="trailing" id="ysK-C6-Atl"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="7k3-uI-p6o"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="imagen" destination="b2j-ou-0Wh" id="1XH-eZ-h2p"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JNc-D9-tRq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="819" y="-498"/>
+        </scene>
+    </scenes>
+</document>

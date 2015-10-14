@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14D130a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="44" id="KGk-i7-Jjw" customClass="toolBarCell" customModule="MobicongressIOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N7T-P0-5OH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="43" id="CxR-sp-eTa"/>
+                            <constraint firstAttribute="width" constant="320" id="zX3-e4-xYT"/>
+                        </constraints>
+                        <items>
+                            <barButtonItem title="Item" id="gml-fj-aPm"/>
+                        </items>
+                    </toolbar>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="N7T-P0-5OH" secondAttribute="bottom" constant="0.5" id="AVB-Ql-ILI"/>
+                    <constraint firstItem="N7T-P0-5OH" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="JDc-AV-OQs"/>
+                    <constraint firstAttribute="bottom" secondItem="N7T-P0-5OH" secondAttribute="bottom" constant="0.5" id="NVV-Dg-Aa7"/>
+                    <constraint firstItem="N7T-P0-5OH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="TIA-Vz-Tko"/>
+                    <constraint firstAttribute="trailing" secondItem="N7T-P0-5OH" secondAttribute="trailing" id="cNU-lZ-ruE"/>
+                    <constraint firstItem="N7T-P0-5OH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="twf-v5-Txi"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="AVB-Ql-ILI"/>
+                        <exclude reference="NVV-Dg-Aa7"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="toolBar" destination="N7T-P0-5OH" id="Gg0-NX-EEb"/>
+                <outlet property="toolBarHeight" destination="CxR-sp-eTa" id="8Qh-bt-aaa"/>
+                <outlet property="toolBarWidth" destination="zX3-e4-xYT" id="C9w-T1-tMA"/>
+            </connections>
+            <point key="canvasLocation" x="293" y="311"/>
+        </tableViewCell>
+    </objects>
+</document>
