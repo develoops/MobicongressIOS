@@ -184,11 +184,7 @@ class sponsorsViewController: UIViewController,UICollectionViewDataSource,UIColl
         else{
             
             item = UIBarButtonItem(title:"Mapa Comercial" as String, style: UIBarButtonItemStyle.Plain, target: self, action:"funRoomSponsor:")
-            
-
-            
         }
-        
 
         item.width = (view.frame.width / 1.1)
         mutu.addObject(item)
@@ -230,7 +226,6 @@ class sponsorsViewController: UIViewController,UICollectionViewDataSource,UIColl
     func funRoomSponsor2(sender: UIBarButtonItem) {
         var mapaVc = self.storyboard?.instantiateViewControllerWithIdentifier("mapaViewController") as! mapaViewController
         
-        
         meetingSponsors.headerImage.fetchFromLocalDatastoreInBackground()
         var image = UIImage (data: meetingSponsors.headerVideo.parseFileV1.getData()!, scale: 3.0)
         
@@ -241,7 +236,6 @@ class sponsorsViewController: UIViewController,UICollectionViewDataSource,UIColl
         self.navigationController?.pushViewController(mapaVc, animated: true)
         
     }
-    
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
@@ -410,8 +404,6 @@ class sponsorsViewController: UIViewController,UICollectionViewDataSource,UIColl
     }
     
     override func viewDidAppear(animated: Bool) {
-        
-        
     }
     
     func centerScrollViewContents() {

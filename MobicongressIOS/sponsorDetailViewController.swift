@@ -33,6 +33,7 @@ class sponsorDetailViewController: UIViewController, UITableViewDelegate,UITable
     
         companyAboutInfo.fetchFromLocalDatastoreInBackground()
         
+       
         for object in companyAboutInfo.company.gallery{
             
             let a = object as! Company
@@ -44,13 +45,11 @@ class sponsorDetailViewController: UIViewController, UITableViewDelegate,UITable
                 return  logo.parseFileV1.getDataInBackground().continueWithBlock({ (taskLogo:BFTask!) -> AnyObject! in
                     
                     let image = UIImage(data: taskLogo.result as! NSData)
-
                     self.gallery.append(image!)
                     
                     return task
                 })
             })
-            
         }
         
         detailEventView.frame = CGRectMake(0, 0, view.layer.frame.width, view.layer.frame.height - 110)
@@ -106,8 +105,8 @@ class sponsorDetailViewController: UIViewController, UITableViewDelegate,UITable
         if let url = NSURL(string: "tel://\(companyAboutInfo.company.phone)") {
             UIApplication.sharedApplication().openURL(url)
         }
-        
     }
+    
     func funMail(sender: UIBarButtonItem) {
         let mailComposeViewController = configuredMailComposeViewController()
         if MFMailComposeViewController.canSendMail() {
@@ -132,6 +131,7 @@ class sponsorDetailViewController: UIViewController, UITableViewDelegate,UITable
         
         detailEventView.tablaHeaderHeight.constant = detailEventView.tablaHeader.contentSize.height
         detailEventView.tablaDescripcionHeight.constant = detailEventView.tablaDescripcion.contentSize.height
+        detailEventView.tablaSpeakerHeight.constant = detailEventView.tablaSpeaker.contentSize.height
     
     }
     
@@ -160,7 +160,7 @@ class sponsorDetailViewController: UIViewController, UITableViewDelegate,UITable
         
         if (tableView == detailEventView.tablaSpeaker) {
             
-            return 0
+            return self.gallery.count
         }
         if (tableView == detailEventView.tablaEvento) {
             
@@ -196,9 +196,7 @@ class sponsorDetailViewController: UIViewController, UITableViewDelegate,UITable
                 
                 cell.imageFull.hidden = true
                 heightImagen = 0
-                
             }
-            
         }
         
         if (tableView == detailEventView.tablaHeader) {
@@ -214,7 +212,17 @@ class sponsorDetailViewController: UIViewController, UITableViewDelegate,UITable
                 textoLabel1 = self.companyAboutInfo.company.details
             
             }
+        
+       }
+        
+        if (tableView == detailEventView.tablaSpeaker) {
+            
+            if(self.gallery.count != 0){
+                heightImagen = 70
+                
+            }
         }
+
         
         let label1:UILabel = UILabel(frame: CGRectMake(0, 0, cell.frame.width, CGFloat.max))
         label1.numberOfLines = 0
@@ -354,6 +362,16 @@ class sponsorDetailViewController: UIViewController, UITableViewDelegate,UITable
             
         else if (tableView == detailEventView.tablaSpeaker){
             
+            
+            let image = self.gallery[indexPath.row]
+            cell.imagen.backgroundColor = UIColor .whiteColor()
+            cell.imagen.image = image
+            cell.imagenTop.constant = 0
+            cell.imagenBot.constant = 0
+            cell.imagenHeight.constant = 90
+            cell.imagenWidth.constant = 90
+            cell.imagen.contentMode = UIViewContentMode.ScaleAspectFit
+
             return cell
         }
             

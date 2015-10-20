@@ -22,7 +22,6 @@ class expositoresViewController: UIViewController,UITableViewDelegate,UITableVie
         self.searchController.becomeFirstResponder()
 //        self.searchController.active = false
         self.tabla.tableHeaderView = self.searchController.searchBar
-
         
         var shorting: NSSortDescriptor = NSSortDescriptor(key: "sortingAux", ascending: true)
         var shortingName: NSSortDescriptor = NSSortDescriptor(key: "firstName", ascending: true)
@@ -35,9 +34,6 @@ class expositoresViewController: UIViewController,UITableViewDelegate,UITableVie
                 mutuExpo.addObject(a)
                 
             }}
-        
-        
-
     }
     
     override func viewDidLoad() {
@@ -361,7 +357,6 @@ func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSInde
             if (NSString(string: UIDevice.currentDevice().systemVersion).doubleValue >= 8) {
                 
                 self.searchController.active = false
-                
             }
         
         detalle.persona = person
@@ -381,8 +376,8 @@ func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSInde
         detalle.persona = person
         detalle.evento = meetingExpositores
         self.navigationController?.pushViewController(detalle, animated: true)
-
-    }
+    
+        }
     }
     
     override func viewWillDisappear(animated: Bool) {

@@ -22,8 +22,7 @@ class tripViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         var url: NSURL = NSURL(string: urlPath2)!
         var request: NSURLRequest = NSURLRequest(URL: url)
-        var response: AutoreleasingUnsafeMutablePointer<NSURLResponse?
-        >=nil
+        var response: AutoreleasingUnsafeMutablePointer<NSURLResponse? >=nil
         var error: NSErrorPointer = nil
         data =  NSURLConnection.sendSynchronousRequest(request, returningResponse: response, error:nil)
         var err: NSError
