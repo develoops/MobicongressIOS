@@ -216,6 +216,21 @@ class MCTabBarViewController: UITabBarController,UITabBarControllerDelegate {
                 
                 mutuViewControllers.addObject(tabCompany)
             }
+                
+            else if (vis.nameView == "navSurvey"){
+                let tabSurvey = stb.instantiateViewControllerWithIdentifier(vis.nameView as String) as! navigationViewController
+                tabSurvey.stb = self.stb
+                tabSurvey.companyInfo = self.companyApp
+                
+                if (vis.icon.isDataAvailable) {
+                    tabSurvey.tabBarItem = UITabBarItem(title:vis.textTab as String, image: UIImage(data: vis.icon.getData()!,scale:2.0), tag: 4)
+                } else {
+                    tabSurvey.tabBarItem = UITabBarItem(title:vis.textTab as String, image: UIImage(named: "quienesSomos"), tag: 4)
+                }
+                
+                mutuViewControllers.addObject(tabSurvey)
+            }
+                
                 //pendiente
             else if (vis.nameView == "navOther"){
                 let tabOtro = stb.instantiateViewControllerWithIdentifier(vis.nameView as String) as! navigationViewController
@@ -223,9 +238,9 @@ class MCTabBarViewController: UITabBarController,UITabBarControllerDelegate {
                 tabOtro.companyInfo = self.companyApp
                 
                 if (vis.icon.isDataAvailable) {
-                    tabOtro.tabBarItem = UITabBarItem(title:vis.textTab as String, image: UIImage(data: vis.icon.getData()!,scale:2.0), tag: 4)
+                    tabOtro.tabBarItem = UITabBarItem(title:vis.textTab as String, image: UIImage(data: vis.icon.getData()!,scale:2.0), tag: 5)
                 } else {
-                    tabOtro.tabBarItem = UITabBarItem(title:vis.textTab as String, image: UIImage(named: "quienesSomos"), tag: 4)
+                    tabOtro.tabBarItem = UITabBarItem(title:vis.textTab as String, image: UIImage(named: "quienesSomos"), tag: 5)
                 }
                 
                 mutuViewControllers.addObject(tabOtro)

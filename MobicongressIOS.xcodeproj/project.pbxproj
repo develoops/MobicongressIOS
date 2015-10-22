@@ -80,6 +80,7 @@
 		C37C41991AC078D0006EAA3E /* Wall.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37C41971AC078D0006EAA3E /* Wall.swift */; };
 		C3C295D71AAD962800A28D88 /* filesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C295D61AAD962800A28D88 /* filesViewController.swift */; };
 		C3C670401AD5A2FB007D238C /* engineSincro.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C6703F1AD5A2FB007D238C /* engineSincro.swift */; };
+		C3C6D26C1BD6EA7200F8A73F /* surveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C6D26B1BD6EA7200F8A73F /* surveyViewController.swift */; };
 		C3C7FA511AB2EACA00251FF7 /* ratingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C7FA501AB2EACA00251FF7 /* ratingViewController.swift */; };
 		C3C7FA551AB2ED3A00251FF7 /* StarEmpty@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3C7FA531AB2ED3A00251FF7 /* StarEmpty@2x.png */; };
 		C3C7FA561AB2ED3A00251FF7 /* StarFull@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3C7FA541AB2ED3A00251FF7 /* StarFull@2x.png */; };
@@ -183,6 +184,7 @@
 		C37C41971AC078D0006EAA3E /* Wall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wall.swift; sourceTree = "<group>"; };
 		C3C295D61AAD962800A28D88 /* filesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = filesViewController.swift; sourceTree = "<group>"; };
 		C3C6703F1AD5A2FB007D238C /* engineSincro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = engineSincro.swift; sourceTree = "<group>"; };
+		C3C6D26B1BD6EA7200F8A73F /* surveyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = surveyViewController.swift; sourceTree = "<group>"; };
 		C3C7FA501AB2EACA00251FF7 /* ratingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ratingViewController.swift; sourceTree = "<group>"; };
 		C3C7FA531AB2ED3A00251FF7 /* StarEmpty@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "StarEmpty@2x.png"; sourceTree = "<group>"; };
 		C3C7FA541AB2ED3A00251FF7 /* StarFull@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "StarFull@2x.png"; sourceTree = "<group>"; };
@@ -494,6 +496,7 @@
 				C3FF70411A9CEC2B0046CB75 /* othersViewController.swift */,
 				C3FF70441A9CEC2B0046CB75 /* StaffViewController.swift */,
 				3C10B78D1AADFC6E000BE175 /* staffDetailViewController.swift */,
+				C3C6D26B1BD6EA7200F8A73F /* surveyViewController.swift */,
 			);
 			name = Directorio;
 			sourceTree = "<group>";
@@ -630,6 +633,7 @@
 				3C4DB9911AAE5B69005158CA /* companyViewController.swift in Sources */,
 				C3FF70461A9CEC2B0046CB75 /* AppDelegate.swift in Sources */,
 				C3FF704C1A9CEC2B0046CB75 /* MCLaunchSplash.swift in Sources */,
+				C3C6D26C1BD6EA7200F8A73F /* surveyViewController.swift in Sources */,
 				3C10B78C1AADF1D3000BE175 /* expositoresDetalleViewController.swift in Sources */,
 				C3FF704D1A9CEC2B0046CB75 /* MCTabBarViewController.swift in Sources */,
 				3CE002571AB0FD3000A1CAC3 /* sponsorDetailViewController.swift in Sources */,

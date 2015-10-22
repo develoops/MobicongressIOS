@@ -40,6 +40,9 @@ class navigationViewController: UINavigationController {
         companyVC.companyAboutInfo = self.companyInfo.companies.firstObject as! Facade
         companyVC.titleView = titleView
 
+        //Survey
+        let surveyVC = stb.instantiateViewControllerWithIdentifier("surveyView") as! surveyViewController
+
         //More
         let moreVC = stb.instantiateViewControllerWithIdentifier("otherView") as! othersViewController
         moreVC.companyInfo = self.companyInfo
@@ -72,6 +75,10 @@ class navigationViewController: UINavigationController {
             self.viewControllers = [companyVC]
         }
         else if(self.tabBarItem.tag == 4){
+            self.viewControllers = [surveyVC]
+            
+        }
+        else if(self.tabBarItem.tag == 5){
             self.viewControllers = [moreVC]
             
         }
