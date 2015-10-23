@@ -20,6 +20,7 @@ class surveyViewController: UIViewController {
         super.viewDidLoad()
         self.title = "Survey"
         self.questionIndex = 0
+        self.view.backgroundColor = UIColor.lightGrayColor()
         self.queryStatements().continueWithExecutor(BFExecutor.mainThreadExecutor(), withBlock: { (task:BFTask!) -> AnyObject! in
 
 
@@ -35,9 +36,11 @@ class surveyViewController: UIViewController {
             let statementText = statement.objectForKey("item") as! PFObject
             
             let optionsFiltered = object.filteredArrayUsingPredicate(optionPredicate)
-            
+            var formatoLabel = UIFont(name: "ArialMT", size: 14) as UIFont!
+
             self.statementLabel = UILabel(frame: CGRectMake(35, 0, 300, 100))
             self.statementLabel.textAlignment = NSTextAlignment.Center
+            self.statementLabel.font = formatoLabel
             self.statementLabel.numberOfLines = 5
             self.statementLabel.text = statementText.objectForKey("text") as? String
             self.view.addSubview(self.statementLabel)
@@ -45,9 +48,7 @@ class surveyViewController: UIViewController {
 
             return task
         })
-    
     }
-    
     
     func setQuestionOptions() {
     
@@ -65,14 +66,14 @@ class surveyViewController: UIViewController {
         
         for var i = 0; i < optionsFiltered.count; ++i {
             let flo = CGFloat((60 * i) + 100)
-            
+            var formatoLabel = UIFont(name: "ArialMT", size: 14) as UIFont!
             let option = optionsFiltered[i] as! PFObject
             let answer = option.objectForKey("item") as! PFObject
             let answerText = answer.objectForKey("text") as? String
            
             let answerButton = UIButton(frame: CGRectMake(0,flo, 200, 50))
             answerButton.titleLabel!.textAlignment = NSTextAlignment.Left
-
+            answerButton.titleLabel?.font = formatoLabel
             answerButton.setTitle(answerText, forState: .Normal)
             answerButton.setTitleColor(UIColor.blueColor(), forState: .Normal)
             answerButton.addTarget(self, action: "nextQuestion:", forControlEvents: .TouchUpInside)
