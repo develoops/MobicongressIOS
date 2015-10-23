@@ -15,6 +15,7 @@ class surveyViewController: UIViewController {
     var questionsArray = NSArray()
     var arrayButtons = NSMutableArray()
     var user = PFUser.currentUser()
+    var userDefolto = NSUserDefaults()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Survey"
@@ -30,13 +31,12 @@ class surveyViewController: UIViewController {
             
             let object = self.questionsArray.objectAtIndex(self.questionIndex) as! NSArray
     
-            
             let statement = object.filteredArrayUsingPredicate(statementPredicate).first as! PFObject
             let statementText = statement.objectForKey("item") as! PFObject
             
             let optionsFiltered = object.filteredArrayUsingPredicate(optionPredicate)
             
-            self.statementLabel = UILabel(frame: CGRectMake(0, 0, 200, 100))
+            self.statementLabel = UILabel(frame: CGRectMake(35, 0, 300, 100))
             self.statementLabel.textAlignment = NSTextAlignment.Center
             self.statementLabel.numberOfLines = 5
             self.statementLabel.text = statementText.objectForKey("text") as? String
@@ -64,18 +64,20 @@ class surveyViewController: UIViewController {
         self.statementLabel.text = statementText.objectForKey("text") as? String
         
         for var i = 0; i < optionsFiltered.count; ++i {
-            let flo = CGFloat((100 * i) + 100)
+            let flo = CGFloat((60 * i) + 100)
             
             let option = optionsFiltered[i] as! PFObject
             let answer = option.objectForKey("item") as! PFObject
             let answerText = answer.objectForKey("text") as? String
            
-            let answerButton = UIButton(frame: CGRectMake(15,flo, 100, 100))
+            let answerButton = UIButton(frame: CGRectMake(0,flo, 200, 50))
+            answerButton.titleLabel!.textAlignment = NSTextAlignment.Left
+
             answerButton.setTitle(answerText, forState: .Normal)
             answerButton.setTitleColor(UIColor.blueColor(), forState: .Normal)
             answerButton.addTarget(self, action: "nextQuestion:", forControlEvents: .TouchUpInside)
+           
             self.arrayButtons.addObject(answerButton)
-            
             self.view.addSubview(answerButton)
         }
     }
@@ -134,20 +136,26 @@ class surveyViewController: UIViewController {
                 return task
             })
             
+            for button in self.arrayButtons {
+                
+                button.removeFromSuperview()
+                self.arrayButtons.removeObjectIdenticalTo(button)
+            }
+
+            self.setQuestionOptions()
+            
         }
         else {
-            
-            //hace la huea que tenga que hacer
-            print("cfini")
+            userDefolto.setBool(true, forKey: "survey")
+            userDefolto.synchronize()
+            self.statementLabel.text = "Thanks"
+            for button in self.arrayButtons {
+                
+                button.removeFromSuperview()
+                self.arrayButtons.removeObjectIdenticalTo(button)
+            }
         }
         
-        for button in self.arrayButtons {
-            
-            button.removeFromSuperview()
-            self.arrayButtons.removeObjectIdenticalTo(button)
-        }
-        
-        self.setQuestionOptions()
     }
     
     func prevQuestion(sender:UIButton){
