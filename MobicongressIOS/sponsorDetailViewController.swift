@@ -31,6 +31,16 @@ class sponsorDetailViewController: UIViewController, UITableViewDelegate,UITable
         detailEventView.tablaDescripcion.delegate = self
         detailEventView.tablaDescripcion.dataSource = self
     
+        
+//        let frameDescription = detailEventView.tablaDescripcion.frame
+//        let frameSpeaker = detailEventView.tablaSpeaker.frame
+//        print("aaaa")
+//        detailEventView.tablaDescripcion.frame = frameSpeaker
+//        detailEventView.tablaSpeaker.frame = frameSpeaker
+        
+        
+
+        
         companyAboutInfo.fetchFromLocalDatastoreInBackground()
         
        

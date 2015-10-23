@@ -78,6 +78,7 @@
 		C37C1FED1A9DA2FE003B081D /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37C1FEC1A9DA2FE003B081D /* Reachability.swift */; };
 		C37C41981AC078D0006EAA3E /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37C41961AC078D0006EAA3E /* Cell.swift */; };
 		C37C41991AC078D0006EAA3E /* Wall.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37C41971AC078D0006EAA3E /* Wall.swift */; };
+		C39928D41BDA9A41008B67B9 /* fondoPregunta.png in Resources */ = {isa = PBXBuildFile; fileRef = C39928D31BDA9A41008B67B9 /* fondoPregunta.png */; };
 		C3C295D71AAD962800A28D88 /* filesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C295D61AAD962800A28D88 /* filesViewController.swift */; };
 		C3C670401AD5A2FB007D238C /* engineSincro.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C6703F1AD5A2FB007D238C /* engineSincro.swift */; };
 		C3C6D26C1BD6EA7200F8A73F /* surveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C6D26B1BD6EA7200F8A73F /* surveyViewController.swift */; };
@@ -182,6 +183,7 @@
 		C37C1FEC1A9DA2FE003B081D /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		C37C41961AC078D0006EAA3E /* Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		C37C41971AC078D0006EAA3E /* Wall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wall.swift; sourceTree = "<group>"; };
+		C39928D31BDA9A41008B67B9 /* fondoPregunta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fondoPregunta.png; sourceTree = "<group>"; };
 		C3C295D61AAD962800A28D88 /* filesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = filesViewController.swift; sourceTree = "<group>"; };
 		C3C6703F1AD5A2FB007D238C /* engineSincro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = engineSincro.swift; sourceTree = "<group>"; };
 		C3C6D26B1BD6EA7200F8A73F /* surveyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = surveyViewController.swift; sourceTree = "<group>"; };
@@ -364,6 +366,7 @@
 		C3C7FA521AB2ED1900251FF7 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				C39928D31BDA9A41008B67B9 /* fondoPregunta.png */,
 				C375038B1AEF0F6C00EE189A /* mapa@2x.png */,
 				3CF053A61AE14E4B009ED331 /* tripadvisor.png */,
 				3C8429A71AD3167700B14011 /* celda_favorito.png */,
@@ -587,6 +590,7 @@
 				3CB995D51AABF6F50084E379 /* detailView.xib in Resources */,
 				C33B904C1AC4985D00123EB4 /* directiva@2x.png in Resources */,
 				1BEAB5501BB9EB5B00DC3F79 /* splash47.png in Resources */,
+				C39928D41BDA9A41008B67B9 /* fondoPregunta.png in Resources */,
 				1BEAB54F1BB9EB5B00DC3F79 /* splash55.png in Resources */,
 				C31990681A9DBC1000F64F1E /* Meeting.storyboard in Resources */,
 				3C40A4B31AC3582E00458CC5 /* quienesSomos@2x.png in Resources */,
