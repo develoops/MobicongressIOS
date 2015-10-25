@@ -5,13 +5,9 @@
 //  Created by Alfonso Parra Reyes on 3/11/15.
 //  Copyright (c) 2015 Parse. All rights reserved.
 //
-
 import UIKit
 import MessageUI
-
-
 class sponsorDetailViewController: UIViewController, UITableViewDelegate,UITableViewDataSource,MFMailComposeViewControllerDelegate  {
-
     var companyAboutInfo: Facade!
     var meetingApp: MeetingApp!
     var confVista: View!
@@ -26,6 +22,7 @@ class sponsorDetailViewController: UIViewController, UITableViewDelegate,UITable
         detailEventView.tablaHeader.dataSource = self
         detailEventView.tablaSpeaker.delegate = self
         detailEventView.tablaSpeaker.dataSource = self
+        detailEventView.tablaSpeaker.scrollEnabled = true
         detailEventView.tablaEvento.delegate = self
         detailEventView.tablaEvento.dataSource = self
         detailEventView.tablaDescripcion.delegate = self
@@ -33,17 +30,15 @@ class sponsorDetailViewController: UIViewController, UITableViewDelegate,UITable
         
         detailEventView.tablaDescripcion.userInteractionEnabled = true
         detailEventView.tablaDescripcion.scrollEnabled = true
-        detailEventView.tablaDescripcion.backgroundColor = UIColor.whiteColor()
-
-
-    
+        detailEventView.tablaSpeaker.scrollEnabled = true
+        detailEventView.tablaSpeaker.userInteractionEnabled = true
+        
         companyAboutInfo.fetchFromLocalDatastoreInBackground()
         
        
         for object in companyAboutInfo.company.gallery{
             
             let a = object as! Company
-
             a.fetchFromLocalDatastoreInBackground().continueWithBlock({ (task:BFTask!) -> AnyObject! in
                 
                 let logo = task.result.valueForKey("logo") as! MobiFile
@@ -133,7 +128,15 @@ class sponsorDetailViewController: UIViewController, UITableViewDelegate,UITable
     
     override func viewDidLayoutSubviews() {
         
-        detailEventView.tabla1Height.constant = detailEventView.tabla1.contentSize.height
+        if detailEventView.tabla1.contentSize.height > 30 {
+            
+            detailEventView.tabla1Height.constant = detailEventView.tabla1.contentSize.height
+            
+        } else {
+        
+        detailEventView.tabla1Height.constant = 0
+            
+        }
         
         detailEventView.tablaHeaderHeight.constant = detailEventView.tablaHeader.contentSize.height
         detailEventView.tablaDescripcionHeight.constant = detailEventView.tablaDescripcion.contentSize.height
@@ -194,6 +197,7 @@ class sponsorDetailViewController: UIViewController, UITableViewDelegate,UITable
             
             let mobiFi = self.companyAboutInfo.company.headerImage
             mobiFi.fetchFromLocalDatastoreInBackground()
+           
             if (mobiFi.isDataAvailable()) {
                 
                 heightImagen = self.view.frame.height * 0.25
@@ -203,6 +207,7 @@ class sponsorDetailViewController: UIViewController, UITableViewDelegate,UITable
                 cell.imageFull.hidden = true
                 heightImagen = 0
             }
+            
         }
         
         if (tableView == detailEventView.tablaHeader) {
@@ -212,24 +217,20 @@ class sponsorDetailViewController: UIViewController, UITableViewDelegate,UITable
             
         }
         
+        if (tableView == detailEventView.tablaSpeaker) {
+            if(self.companyAboutInfo.company.details.length != 0){
+                textoLabel3 = self.companyAboutInfo.company.details
+                
+            }
+        }
+        
         if (tableView == detailEventView.tablaDescripcion) {
             
             if(self.gallery.count != 0){
                 heightImagen = 70
-                
             }
-
         
        }
-        
-        if (tableView == detailEventView.tablaSpeaker) {
-            if(self.companyAboutInfo.company.details.length != 0){
-                textoLabel1 = self.companyAboutInfo.company.details
-                
-            }
-        }
-
-        
         let label1:UILabel = UILabel(frame: CGRectMake(0, 0, cell.frame.width, CGFloat.max))
         label1.numberOfLines = 0
         label1.lineBreakMode = cell.modoTerminoDeLinea
@@ -308,7 +309,9 @@ class sponsorDetailViewController: UIViewController, UITableViewDelegate,UITable
                 
             } else {
                 cell.imageFull.hidden = true
+                
             }
+        
             
         }
         
@@ -342,40 +345,51 @@ class sponsorDetailViewController: UIViewController, UITableViewDelegate,UITable
                         cell.imagen.contentMode = UIViewContentMode.ScaleAspectFit
                         
                     }})
-
             } else {
                 
                 cell.imagenWidth.constant = 0
                 
             }
+        
         }
         
         if (tableView == detailEventView.tablaDescripcion) {
-
-            let image = self.gallery[indexPath.row]
+        
+            var image = self.gallery[indexPath.row]
+            
             cell.imagen.backgroundColor = UIColor .whiteColor()
             cell.imagen.image = image
-            cell.imagenTop.constant = 0
-            cell.imagenBot.constant = 0
-            cell.imagenHeight.constant = 90
-            cell.imagenWidth.constant = 90
+            cell.viewContentTop.constant = 5
+            cell.viewContentBot.constant = 0
+            
+            cell.viewContent.backgroundColor = UIColor.whiteColor()
+            cell.imagenHeight.constant = 70
+            
+            cell.imagenWidth.constant = view.frame.width
+            
             cell.imagen.contentMode = UIViewContentMode.ScaleAspectFit
+            cell.imagen.contentScaleFactor = 3.0
+            
             
             return cell
+            
         }
             
         else if (tableView == detailEventView.tablaSpeaker){
             
             if(companyAboutInfo.company.details.length != 0){
+                
                 cell.label1.text = companyAboutInfo.company.details as String
-                cell.label1.font = UIFont(name: "ArialMT", size: 13)
+                cell.label1.font = cell.fontTextoMediano
     
                 cell.imagenWidth.constant = 0
                 cell.viewContentLeft.constant = 10
                 cell.viewContentTop.constant = 5
                 cell.viewContentRight.constant = 10
                 cell.viewContentBot.constant = 5
-    }
+            
+                
+            }
     
             return cell
         }
@@ -389,6 +403,7 @@ class sponsorDetailViewController: UIViewController, UITableViewDelegate,UITable
         
         return cell
     }
+    
     //Fuciones mail
     
     func configuredMailComposeViewController() -> MFMailComposeViewController {
