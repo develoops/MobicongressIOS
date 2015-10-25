@@ -22,7 +22,6 @@ class ratingViewController: UIViewController,FloatRatingViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       // self.llamado()
 
         view2.frame = CGRectMake(0, 0, self.view.layer.frame.width, self.view.layer.frame.height - 64)
         view2.backgroundColor = UIColor.whiteColor()

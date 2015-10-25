@@ -30,17 +30,12 @@ class sponsorDetailViewController: UIViewController, UITableViewDelegate,UITable
         detailEventView.tablaEvento.dataSource = self
         detailEventView.tablaDescripcion.delegate = self
         detailEventView.tablaDescripcion.dataSource = self
-    
         
-//        let frameDescription = detailEventView.tablaDescripcion.frame
-//        let frameSpeaker = detailEventView.tablaSpeaker.frame
-//        print("aaaa")
-//        detailEventView.tablaDescripcion.frame = frameSpeaker
-//        detailEventView.tablaSpeaker.frame = frameSpeaker
-        
-        
+        detailEventView.tablaDescripcion.userInteractionEnabled = true
+        detailEventView.tablaDescripcion.scrollEnabled = true
 
-        
+
+    
         companyAboutInfo.fetchFromLocalDatastoreInBackground()
         
        
@@ -165,12 +160,12 @@ class sponsorDetailViewController: UIViewController, UITableViewDelegate,UITable
         
         if (tableView == detailEventView.tablaDescripcion) {
             
-            return 1
+            return self.gallery.count
         }
         
         if (tableView == detailEventView.tablaSpeaker) {
             
-            return self.gallery.count
+            return 1
         }
         if (tableView == detailEventView.tablaEvento) {
             
@@ -218,17 +213,17 @@ class sponsorDetailViewController: UIViewController, UITableViewDelegate,UITable
         
         if (tableView == detailEventView.tablaDescripcion) {
             
-            if(self.companyAboutInfo.company.details.length != 0){
-                textoLabel1 = self.companyAboutInfo.company.details
-            
+            if(self.gallery.count != 0){
+                heightImagen = 70
+                
             }
+
         
        }
         
         if (tableView == detailEventView.tablaSpeaker) {
-            
-            if(self.gallery.count != 0){
-                heightImagen = 70
+            if(self.companyAboutInfo.company.details.length != 0){
+                textoLabel1 = self.companyAboutInfo.company.details
                 
             }
         }
@@ -356,23 +351,6 @@ class sponsorDetailViewController: UIViewController, UITableViewDelegate,UITable
         
         if (tableView == detailEventView.tablaDescripcion) {
 
-            if(companyAboutInfo.company.details.length != 0){
-            cell.label1.text = companyAboutInfo.company.details as String
-            cell.label1.font = UIFont(name: "ArialMT", size: 13)
-            
-            cell.imagenWidth.constant = 0
-            cell.viewContentLeft.constant = 10
-            cell.viewContentTop.constant = 5
-            cell.viewContentRight.constant = 10
-            cell.viewContentBot.constant = 5
-            }
-            return cell
-            
-        }
-            
-        else if (tableView == detailEventView.tablaSpeaker){
-            
-            
             let image = self.gallery[indexPath.row]
             cell.imagen.backgroundColor = UIColor .whiteColor()
             cell.imagen.image = image
@@ -381,10 +359,28 @@ class sponsorDetailViewController: UIViewController, UITableViewDelegate,UITable
             cell.imagenHeight.constant = 90
             cell.imagenWidth.constant = 90
             cell.imagen.contentMode = UIViewContentMode.ScaleAspectFit
-
+            
             return cell
+            
         }
             
+        else if (tableView == detailEventView.tablaSpeaker){
+            
+    
+            if(companyAboutInfo.company.details.length != 0){
+                cell.label1.text = companyAboutInfo.company.details as String
+                cell.label1.font = UIFont(name: "ArialMT", size: 13)
+    
+                cell.imagenWidth.constant = 0
+                cell.viewContentLeft.constant = 10
+                cell.viewContentTop.constant = 5
+                cell.viewContentRight.constant = 10
+                cell.viewContentBot.constant = 5
+    }
+    
+            return cell
+        }
+    
         else if (tableView == detailEventView.tablaEvento) {
             
             

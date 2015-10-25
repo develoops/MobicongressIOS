@@ -65,8 +65,6 @@ class surveyViewController: UIViewController {
             
             self.statementLabel.text = "You are already answer the survey, Thanks"
         }
-     
-        
     }
     
     func setQuestionOptions() {
