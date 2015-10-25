@@ -27,6 +27,10 @@ class libraryViewController: UIViewController,UITableViewDataSource,UITableViewD
         self.tabla.separatorColor = UIColor .clearColor()
         self.tabla.frame = self.view.frame
         self.view.addSubview(self.tabla)
+        var bMeetings = UIBarButtonItem(image: UIImage(named: "directorio"), style: .Plain, target: self, action: "listaMeetings:")
+        
+        self.navigationItem.leftBarButtonItems = [bMeetings]
+
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -191,6 +195,11 @@ class libraryViewController: UIViewController,UITableViewDataSource,UITableViewD
         self.navigationController?.pushViewController(filesVC, animated: true)
         
         }
+    func listaMeetings(sender: UIBarButtonItem) {
+        
+        self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
