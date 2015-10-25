@@ -33,6 +33,7 @@ class sponsorDetailViewController: UIViewController, UITableViewDelegate,UITable
         
         detailEventView.tablaDescripcion.userInteractionEnabled = true
         detailEventView.tablaDescripcion.scrollEnabled = true
+        detailEventView.tablaDescripcion.backgroundColor = UIColor.whiteColor()
 
 
     
@@ -361,12 +362,10 @@ class sponsorDetailViewController: UIViewController, UITableViewDelegate,UITable
             cell.imagen.contentMode = UIViewContentMode.ScaleAspectFit
             
             return cell
-            
         }
             
         else if (tableView == detailEventView.tablaSpeaker){
             
-    
             if(companyAboutInfo.company.details.length != 0){
                 cell.label1.text = companyAboutInfo.company.details as String
                 cell.label1.font = UIFont(name: "ArialMT", size: 13)
