@@ -61,6 +61,11 @@ class detalleViewController: UIViewController, UITableViewDelegate,UITableViewDa
         detailEventView.tablaEventoRight.constant = 10
         detailEventView.tablaEventoTop.constant = 5
         detailEventView.tablaEventoBot.constant = 5
+        
+        detailEventView.tablaSpeaker.allowsSelection = true
+       // detailEventView.tablaSpeaker. = true
+
+
     }
 
    
@@ -1361,13 +1366,13 @@ class detalleViewController: UIViewController, UITableViewDelegate,UITableViewDa
         }
         else if (tableView == detailEventView.tablaSpeaker) {
         
-
-            let evento = self.anidaosFiltraos.objectAtIndex(indexPath.row) as! Event
+            print("toca")
           
             let actors = evento.actors.objectAtIndex(indexPath.row) as! Actor
             let detallePersona = self.storyboard?.instantiateViewControllerWithIdentifier("expositoresDetalleViewController") as! expositoresDetalleViewController
             
             detallePersona.persona = actors.person
+            detallePersona.evento = meetingApp
             self.navigationController?.pushViewController(detallePersona, animated: true)
 
         }

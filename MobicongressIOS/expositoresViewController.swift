@@ -24,8 +24,8 @@ class expositoresViewController: UIViewController,UITableViewDelegate,UITableVie
         self.tabla.tableHeaderView = self.searchController.searchBar
         
         var shorting: NSSortDescriptor = NSSortDescriptor(key: "sortingAux", ascending: true)
-        var shortingName: NSSortDescriptor = NSSortDescriptor(key: "firstName", ascending: true)
-        var shortingNameLast: NSSortDescriptor = NSSortDescriptor(key: "lastName", ascending: true)
+        var shortingName: NSSortDescriptor = NSSortDescriptor(key: "lastName", ascending: true)
+        var shortingNameLast: NSSortDescriptor = NSSortDescriptor(key: "firstName", ascending: true)
         
         for pe in self.meetingExpositores.persons.sortedArrayUsingDescriptors([shortingName,shortingNameLast,shorting]){
             

@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>24F52E66-10C7-4FF6-AB9C-43157E0C7526</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>MobicongressIOS</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>C32D5F5975B2A6D9D070711B1541D4232E35521E</key>
 		<string>https://github.com/develoops/MobicongressIOS.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>MobicongressIOS.xcodeproj/project.xcworkspace</string>
+	<string>MobicongressIOS.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>C32D5F5975B2A6D9D070711B1541D4232E35521E</key>
