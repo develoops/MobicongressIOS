@@ -56,12 +56,12 @@ class Event: PFObject,PFSubclassing {
         }
         else if(idioma == "en"){
         
-            titulo = self.titleLg2
+            titulo = self.title
         }
             
         else if(idioma == "pt"){
             
-            titulo = self.titleLg3
+            titulo = self.title
         }
             
         else{

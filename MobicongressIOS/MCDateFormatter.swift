@@ -50,11 +50,8 @@ class MCDateFormatter: NSDateFormatter {
         let idioma = NSUserDefaults.standardUserDefaults().valueForKey("idioma") as! NSString
         if(idioma == "es")
         {
-//            DiayMes.dateFormat = "dd 'de' MMMM"
-//            DiayMes.locale = NSLocale(localeIdentifier: "es_ES")
-            
-            DiayMes.dateFormat = "dd 'of' MMMM"
-            DiayMes.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+            DiayMes.dateFormat = "dd 'de' MMMM"
+            DiayMes.locale = NSLocale(localeIdentifier: "es_ES")
             
         }
         else if(idioma == "en"){
@@ -88,11 +85,8 @@ class MCDateFormatter: NSDateFormatter {
         let idioma = NSUserDefaults.standardUserDefaults().valueForKey("idioma") as! NSString
         if(idioma == "es")
         {
-//            DiaMesAno.dateFormat = "dd 'de' MMMM 'de' YYYY"
-//            DiaMesAno.locale = NSLocale(localeIdentifier: "es_ES")
-            
-            DiaMesAno.dateFormat = "dd 'of' MMMM 'of' YYYY"
-            DiaMesAno.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+            DiaMesAno.dateFormat = "dd 'de' MMMM 'de' YYYY"
+            DiaMesAno.locale = NSLocale(localeIdentifier: "es_ES")
             
         }
         else if(idioma == "en"){
@@ -103,7 +97,7 @@ class MCDateFormatter: NSDateFormatter {
             
         else if(idioma == "pt"){
             
-            DiaMesAno.dateFormat = "de 'of' MMMM 'de' YYYY"
+            DiaMesAno.dateFormat = "de 'de' MMMM 'de' YYYY"
             DiaMesAno.locale = NSLocale(localeIdentifier: "pt_BR")
         }
             

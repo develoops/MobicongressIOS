@@ -106,15 +106,7 @@ class staffDetailViewController: UIViewController, UITableViewDelegate,UITableVi
             
             if(actores.person.isDataAvailable()){
                 
-                if actores.person.salutation == "" {
-                    
-                    textoLabel1 = "\(actores.person.firstName) \(actores.person.lastName)"
-                    
-                } else {
-                    
-                    textoLabel1 = "\(actores.person.salutation) \(actores.person.firstName) \(actores.person.lastName)"
-                    
-                }
+                textoLabel1 = "\(actores.person.salutation) \(actores.person.firstName) \(actores.person.lastName)"
             }
         }
         
@@ -192,17 +184,7 @@ class staffDetailViewController: UIViewController, UITableViewDelegate,UITableVi
             if(actores.person.isDataAvailable()){
                 
                 cell.separator.backgroundColor = UIColor.clearColor()
-                
-                if actores.person.salutation == "" {
-                    
-                    cell.label1.text = "\(actores.person.firstName) \(actores.person.lastName)"
-                    
-                } else {
-                    
-                    cell.label1.text = "\(actores.person.salutation) \(actores.person.firstName) \(actores.person.lastName)"
-                    
-                }
-            
+                cell.label1.text = "\(actores.person.salutation) \(actores.person.firstName) \(actores.person.lastName)"
                 cell.label1.textColor = UIColor.whiteColor()
             }
             

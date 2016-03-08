@@ -10,7 +10,7 @@
         <!--Eventos View Controller-->
         <scene sceneID="7i2-WE-NLE">
             <objects>
-                <viewController storyboardIdentifier="eventosViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="a7h-vF-5DZ" customClass="eventosViewController" customModule="MEXTESOL" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="eventosViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="a7h-vF-5DZ" customClass="eventosViewController" customModule="SOCHED_2015" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="04m-MC-nZ2"/>
                         <viewControllerLayoutGuide type="bottom" id="hZN-IB-CP9"/>
@@ -29,7 +29,7 @@
         <!--Navigation View Controller Meeting-->
         <scene sceneID="hOg-iZ-mZO">
             <objects>
-                <navigationController storyboardIdentifier="navEvents" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OT5-X1-SFO" customClass="navigationViewControllerMeeting" customModule="MEXTESOL" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="navEvents" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OT5-X1-SFO" customClass="navigationViewControllerMeeting" customModule="SOCHED_2015" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Kdj-PZ-ijB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -44,7 +44,7 @@
         <!--Tab Bar View Controller Eventos-->
         <scene sceneID="4xD-g6-flT">
             <objects>
-                <tabBarController storyboardIdentifier="tabEventos" useStoryboardIdentifierAsRestorationIdentifier="YES" id="t4C-aM-ZZI" customClass="MCTabBarViewControllerEventos" customModule="MEXTESOL" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabEventos" useStoryboardIdentifierAsRestorationIdentifier="YES" id="t4C-aM-ZZI" customClass="MCTabBarViewControllerEventos" customModule="SOCHED_2015" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="lc1-qY-4cE"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="r9G-aL-rAU">
@@ -60,7 +60,7 @@
         <!--Expositores View Controller-->
         <scene sceneID="cls-Aq-lXW">
             <objects>
-                <viewController storyboardIdentifier="expositoresViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Lrm-MJ-lbg" customClass="expositoresViewController" customModule="MEXTESOL" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="expositoresViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Lrm-MJ-lbg" customClass="expositoresViewController" customModule="SOCHED_2015" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7eW-TP-TvY"/>
                         <viewControllerLayoutGuide type="bottom" id="IqT-DV-cTe"/>
@@ -79,7 +79,7 @@
         <!--Sponsors View Controller-->
         <scene sceneID="PaO-I3-ohQ">
             <objects>
-                <viewController storyboardIdentifier="sponsorsViewController" id="qY7-J1-MRp" customClass="sponsorsViewController" customModule="MEXTESOL" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="sponsorsViewController" id="qY7-J1-MRp" customClass="sponsorsViewController" customModule="SOCHED_2015" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5ri-wZ-Gax"/>
                         <viewControllerLayoutGuide type="bottom" id="l11-EL-g0E"/>
@@ -98,7 +98,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="standCollectionCell" id="SC7-ik-bJI" customClass="standCollectionCell" customModule="MEXTESOL" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="standCollectionCell" id="SC7-ik-bJI" customClass="standCollectionCell" customModule="SOCHED_2015" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -180,7 +180,7 @@
         <!--Detalle View Controller-->
         <scene sceneID="4oS-78-4JK">
             <objects>
-                <viewController storyboardIdentifier="detalleViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="laW-M4-kgY" customClass="detalleViewController" customModule="MEXTESOL" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detalleViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="laW-M4-kgY" customClass="detalleViewController" customModule="SOCHED_2015" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PvY-EV-nvx"/>
                         <viewControllerLayoutGuide type="bottom" id="Ufy-Ss-oOj"/>
@@ -198,7 +198,7 @@
         <!--Expositores Detalle View Controller-->
         <scene sceneID="ybC-Re-iK7">
             <objects>
-                <viewController storyboardIdentifier="expositoresDetalleViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RPQ-qn-aXn" customClass="expositoresDetalleViewController" customModule="MEXTESOL" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="expositoresDetalleViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RPQ-qn-aXn" customClass="expositoresDetalleViewController" customModule="SOCHED_2015" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fWv-9a-nxl"/>
                         <viewControllerLayoutGuide type="bottom" id="f9p-7X-Ve1"/>
@@ -216,7 +216,7 @@
         <!--Sponsor Detail View Controller-->
         <scene sceneID="TtF-16-qne">
             <objects>
-                <viewController storyboardIdentifier="sponsorDetail" id="x25-hF-1pV" customClass="sponsorDetailViewController" customModule="MEXTESOL" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="sponsorDetail" id="x25-hF-1pV" customClass="sponsorDetailViewController" customModule="SOCHED_2015" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="C3a-Cj-bHs"/>
                         <viewControllerLayoutGuide type="bottom" id="qbb-MC-5hj"/>
@@ -234,7 +234,7 @@
         <!--Mapa View Controller-->
         <scene sceneID="YI5-93-iay">
             <objects>
-                <viewController storyboardIdentifier="mapaViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uMq-N1-huk" customClass="mapaViewController" customModule="MEXTESOL" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mapaViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uMq-N1-huk" customClass="mapaViewController" customModule="SOCHED_2015" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KxV-cO-Zzi"/>
                         <viewControllerLayoutGuide type="bottom" id="Ppf-61-Nak"/>
@@ -252,7 +252,7 @@
         <!--Favoritos View Controller-->
         <scene sceneID="hZs-mO-PfD">
             <objects>
-                <viewController storyboardIdentifier="favoritosViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="f6J-nh-dCD" customClass="favoritosViewController" customModule="MEXTESOL" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="favoritosViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="f6J-nh-dCD" customClass="favoritosViewController" customModule="SOCHED_2015" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jfD-6c-IzS"/>
                         <viewControllerLayoutGuide type="bottom" id="sPh-jb-g77"/>
@@ -270,7 +270,7 @@
         <!--Library View Controller-->
         <scene sceneID="hKs-RC-LJe">
             <objects>
-                <viewController storyboardIdentifier="libraryViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DyU-ay-pfV" customClass="libraryViewController" customModule="MEXTESOL" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="libraryViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DyU-ay-pfV" customClass="libraryViewController" customModule="SOCHED_2015" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8EF-hj-jGp"/>
                         <viewControllerLayoutGuide type="bottom" id="DYI-6q-JEC"/>
@@ -288,7 +288,7 @@
         <!--Files View Controller-->
         <scene sceneID="AvB-aD-8he">
             <objects>
-                <viewController storyboardIdentifier="filesViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qJl-6s-xvu" customClass="filesViewController" customModule="MEXTESOL" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="filesViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qJl-6s-xvu" customClass="filesViewController" customModule="SOCHED_2015" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xv1-y7-HxV"/>
                         <viewControllerLayoutGuide type="bottom" id="D35-be-aid"/>
@@ -306,7 +306,7 @@
         <!--Navigation View Controller Meeting-->
         <scene sceneID="8Lh-7p-Ohw">
             <objects>
-                <navigationController storyboardIdentifier="navSpeakers" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="PjU-dc-srI" customClass="navigationViewControllerMeeting" customModule="MEXTESOL" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="navSpeakers" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="PjU-dc-srI" customClass="navigationViewControllerMeeting" customModule="SOCHED_2015" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hLx-Us-0Lo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -321,7 +321,7 @@
         <!--Navigation View Controller Meeting-->
         <scene sceneID="4qg-XY-5tf">
             <objects>
-                <navigationController storyboardIdentifier="navSponsors" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IjZ-Zh-9JR" customClass="navigationViewControllerMeeting" customModule="MEXTESOL" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="navSponsors" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IjZ-Zh-9JR" customClass="navigationViewControllerMeeting" customModule="SOCHED_2015" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0UO-mi-m8O">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -336,7 +336,7 @@
         <!--Navigation View Controller Meeting-->
         <scene sceneID="DvY-qm-Nbc">
             <objects>
-                <navigationController storyboardIdentifier="navFavorites" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sEK-nw-ffY" customClass="navigationViewControllerMeeting" customModule="MEXTESOL" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="navFavorites" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sEK-nw-ffY" customClass="navigationViewControllerMeeting" customModule="SOCHED_2015" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fMj-8d-ogt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -351,7 +351,7 @@
         <!--Navigation View Controller Meeting-->
         <scene sceneID="Fti-cf-epU">
             <objects>
-                <navigationController storyboardIdentifier="navLibrary" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="U4F-sF-3DR" customClass="navigationViewControllerMeeting" customModule="MEXTESOL" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="navLibrary" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="U4F-sF-3DR" customClass="navigationViewControllerMeeting" customModule="SOCHED_2015" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ny6-8b-yps">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -366,7 +366,7 @@
         <!--Rating View Controller-->
         <scene sceneID="uaf-My-oeR">
             <objects>
-                <viewController storyboardIdentifier="ratingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Wji-EA-7g3" customClass="ratingViewController" customModule="MEXTESOL" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ratingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Wji-EA-7g3" customClass="ratingViewController" customModule="SOCHED_2015" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xGw-No-YuY"/>
                         <viewControllerLayoutGuide type="bottom" id="q0J-eR-zRd"/>
@@ -375,7 +375,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wd7-CF-eBg" customClass="FloatRatingView" customModule="MEXTESOL" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wd7-CF-eBg" customClass="FloatRatingView" customModule="SOCHED_2015" customModuleProvider="target">
                                 <rect key="frame" x="66" y="52" width="243" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -435,7 +435,7 @@
         <!--News View Controller-->
         <scene sceneID="hgR-xa-XQA">
             <objects>
-                <viewController storyboardIdentifier="newsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="50i-Xv-gbM" customClass="newsViewController" customModule="MEXTESOL" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="newsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="50i-Xv-gbM" customClass="newsViewController" customModule="SOCHED_2015" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8G3-nG-lye"/>
                         <viewControllerLayoutGuide type="bottom" id="wdS-Nj-LcX"/>
@@ -453,7 +453,7 @@
         <!--Gallery View Controller-->
         <scene sceneID="P2L-vp-YOa">
             <objects>
-                <viewController storyboardIdentifier="galleryViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="eRB-2W-gQl" customClass="galleryViewController" customModule="MEXTESOL" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="galleryViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="eRB-2W-gQl" customClass="galleryViewController" customModule="SOCHED_2015" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="z3s-v7-nQc"/>
                         <viewControllerLayoutGuide type="bottom" id="W26-WZ-gpb"/>
@@ -472,7 +472,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="galleryCollectionCell" id="VbT-bp-2vI" customClass="galleryCollectionCell" customModule="MEXTESOL" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="galleryCollectionCell" id="VbT-bp-2vI" customClass="galleryCollectionCell" customModule="SOCHED_2015" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -522,7 +522,7 @@
         <!--Navigation View Controller Meeting-->
         <scene sceneID="me3-Mi-oTV">
             <objects>
-                <navigationController storyboardIdentifier="navGallery" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="99M-9j-qu9" customClass="navigationViewControllerMeeting" customModule="MEXTESOL" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="navGallery" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="99M-9j-qu9" customClass="navigationViewControllerMeeting" customModule="SOCHED_2015" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="SfH-LW-gqH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -537,7 +537,7 @@
         <!--Navigation View Controller Meeting-->
         <scene sceneID="29Q-eB-guT">
             <objects>
-                <navigationController storyboardIdentifier="navTrip" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Qal-Te-Ewm" customClass="navigationViewControllerMeeting" customModule="MEXTESOL" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="navTrip" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Qal-Te-Ewm" customClass="navigationViewControllerMeeting" customModule="SOCHED_2015" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="HqJ-bQ-Wla">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -552,7 +552,7 @@
         <!--Trip View Controller-->
         <scene sceneID="g4e-6F-ivm">
             <objects>
-                <viewController storyboardIdentifier="tripViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="QcK-40-eYN" customClass="tripViewController" customModule="MEXTESOL" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="tripViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="QcK-40-eYN" customClass="tripViewController" customModule="SOCHED_2015" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="g6S-P9-Tmk"/>
                         <viewControllerLayoutGuide type="bottom" id="Jj3-sH-0Lg"/>
@@ -570,7 +570,7 @@
         <!--Web View Controller-->
         <scene sceneID="fE8-VN-Wuj">
             <objects>
-                <viewController storyboardIdentifier="webViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="W1I-Mo-Td2" customClass="webViewController" customModule="MEXTESOL" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="webViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="W1I-Mo-Td2" customClass="webViewController" customModule="SOCHED_2015" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Jow-By-mTf"/>
                         <viewControllerLayoutGuide type="bottom" id="P33-IU-YFg"/>

@@ -48,11 +48,7 @@ class companyViewController: UIViewController,  UITableViewDelegate,UITableViewD
         let idioma = NSUserDefaults.standardUserDefaults().valueForKey("idioma") as! NSString
         if(idioma == "es")
         {
-//            titlePhone = "Llamar"
-//            titleMail = "Mail"
-//            titleWeb = "Web"
-            
-            titlePhone = "Call"
+            titlePhone = "Llamar"
             titleMail = "Mail"
             titleWeb = "Web"
             
@@ -129,40 +125,40 @@ class companyViewController: UIViewController,  UITableViewDelegate,UITableViewD
         let filesVC = storyboard.instantiateViewControllerWithIdentifier("filesViewController") as! filesViewController
         filesVC.urling = companyAboutInfo.company.website
         
-        // ARREGLAR
         
         let idioma = NSUserDefaults.standardUserDefaults().valueForKey("idioma") as! NSString
         if(idioma == "es")
         {
             
-//                    filesVC.texto = "Cargando sitio web de \(companyAboutInfo.company.name)"
-            filesVC.texto = "Loading \(companyAboutInfo.company.name)'s WebSite"
+            filesVC.texto = "Cargando sitio web de \(companyAboutInfo.company.name)"
+            
             
         }
         else if(idioma == "en"){
             
             
-                   filesVC.texto = "Loading \(companyAboutInfo.company.name)'s WebSite"
+            filesVC.texto = "Loading \(companyAboutInfo.company.name)'s website"
             
         }
             
         else if(idioma == "pt"){
             
-                    filesVC.texto = "Cargando sitio web de \(companyAboutInfo.company.name)"
+            filesVC.texto = "Carregando website \(companyAboutInfo.company.name)"
             
         }
             
         else{
             
-                    filesVC.texto = "Cargando sitio web de \(companyAboutInfo.company.name)"
+            filesVC.texto = "Cargando sitio web de \(companyAboutInfo.company.name)"
             
         }
         
         
-
+        
         self.navigationController?.pushViewController(filesVC, animated: true)
-    
-}
+        
+    }
+
 
     override func viewDidLayoutSubviews() {
         
@@ -280,12 +276,12 @@ class companyViewController: UIViewController,  UITableViewDelegate,UITableViewD
             }
             else if(idioma == "en"){
                 
-                cell.textoLabel2 = self.companyAboutInfo.company.detailsLg2
+                cell.textoLabel2 = self.companyAboutInfo.company.details
             }
                 
             else if(idioma == "pt"){
                 
-                cell.textoLabel2 = self.companyAboutInfo.company.detailsLg3
+                cell.textoLabel2 = self.companyAboutInfo.company.details
             }
                 
             else{
@@ -395,12 +391,12 @@ class companyViewController: UIViewController,  UITableViewDelegate,UITableViewD
             }
             else if(idioma == "en"){
                 
-                label1.text = self.companyAboutInfo.company.nameLg2 as String
+                label1.text = self.companyAboutInfo.company.name as String
             }
                 
             else if(idioma == "pt"){
                 
-                label1.text = self.companyAboutInfo.company.nameLg3 as String
+                label1.text = self.companyAboutInfo.company.name as String
             }
                 
             else{
@@ -424,12 +420,12 @@ class companyViewController: UIViewController,  UITableViewDelegate,UITableViewD
             }
             else if(idioma == "en"){
                 
-                cell.label1.text = self.companyAboutInfo.company.nameLg2 as String
+                cell.label1.text = self.companyAboutInfo.company.name as String
             }
                 
             else if(idioma == "pt"){
                 
-                cell.label1.text = self.companyAboutInfo.company.nameLg3 as String
+                cell.label1.text = self.companyAboutInfo.company.name as String
             }
                 
             else{
@@ -485,12 +481,12 @@ class companyViewController: UIViewController,  UITableViewDelegate,UITableViewD
                 }
                 else if(idioma == "en"){
                     
-                    cell.label1.text = self.companyAboutInfo.company.detailsLg2 as String
+                    cell.label1.text = self.companyAboutInfo.company.details as String
                 }
                     
                 else if(idioma == "pt"){
                     
-                    cell.label1.text = self.companyAboutInfo.company.detailsLg3 as String
+                    cell.label1.text = self.companyAboutInfo.company.details as String
                 }
                     
                 else{
@@ -532,33 +528,7 @@ class companyViewController: UIViewController,  UITableViewDelegate,UITableViewD
     }
     
     func showSendMailErrorAlert() {
-        
-        var sendMailErrorAlert  = UIAlertView()
-        
-        let idioma = NSUserDefaults.standardUserDefaults().valueForKey("idioma") as! NSString
-        if(idioma == "es")
-        {
-//                    sendMailErrorAlert = UIAlertView(title: "Não é possível enviar e-mails", message: "Su dispositivo no esta habilitado para enviar correos.  Por favor revise su configuración de correos y vuelva a intentarlo.", delegate: self, cancelButtonTitle: "OK")
-            
-                                sendMailErrorAlert = UIAlertView(title: "Unable to send mail", message: "Your device is not able to send mails. Please check your mail settings and try again.", delegate: self, cancelButtonTitle: "OK")
-            
-        }
-        else if(idioma == "en"){
-            
-                    sendMailErrorAlert = UIAlertView(title: "Unable to send mail", message: "Your device is not able to send mails. Please check your mail settings and try again.", delegate: self, cancelButtonTitle: "OK")
-        }
-            
-        else if(idioma == "pt"){
-            
-                    sendMailErrorAlert = UIAlertView(title: "No se pudo enviar el correo", message: "Seu aparelho não é capaz de enviar e-mails. Por favor, verifique suas configurações de e-mail e tente novamente", delegate: self, cancelButtonTitle: "OK")
-        }
-            
-        else{
-                    sendMailErrorAlert = UIAlertView(title: "No se pudo enviar el correo", message: "Su dispositivo no esta habilitado para enviar correos.  Por favor revise su configuración de correos y vuelva a intentarlo.", delegate: self, cancelButtonTitle: "OK")
-            
-        }
-        
-
+        let sendMailErrorAlert = UIAlertView(title: "No se pudo enviar el correo", message: "Su dispositivo no esta habilitado para enviar correos.  Por favor revise su configuración de correos y vuelva a intentarlo.", delegate: self, cancelButtonTitle: "OK")
         sendMailErrorAlert.show()
     }
     

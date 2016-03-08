@@ -178,17 +178,7 @@ class expositoresDetalleViewController: UIViewController, UITableViewDelegate,UI
             
             if(persona.isDataAvailable()){
                 
-                if persona.salutation == "" {
-                    
-                    textoLabel1 = "\(persona.firstName) \(persona.lastName)"
-                    
-                } else {
-                    
-                    textoLabel1 = "\(persona.salutation) \(persona.firstName) \(persona.lastName)"
-                    
-                }
-                
-                
+                textoLabel1 = "\(persona.salutation) \(persona.firstName) \(persona.lastName)"
             }
         }
         
@@ -204,12 +194,12 @@ class expositoresDetalleViewController: UIViewController, UITableViewDelegate,UI
                 }
                 else if(idioma == "en"){
                     
-                    textoLabel2 = persona.bioLg2
+                    textoLabel2 = persona.bio
                 }
                     
                 else if(idioma == "pt"){
                     
-                    textoLabel2 = persona.bioLg3
+                    textoLabel2 = persona.bio
                 }
                     
                 else{
@@ -268,16 +258,7 @@ class expositoresDetalleViewController: UIViewController, UITableViewDelegate,UI
             personaUno .fetchFromLocalDatastoreInBackground()
                 if personaUno.person.isDataAvailable() {
                     
-                    var strUno = String()
-                    
-                    if personaUno.person.salutation == "" {
-                        
-                        strUno = "\(personaUno.person.firstName) \(personaUno.person.lastName)"
-                    } else {
-                        
-                        strUno = "\(personaUno.person.salutation) \(personaUno.person.firstName) \(personaUno.person.lastName)"
-                        
-                    }
+                    let strUno = "\(personaUno.person.salutation) \(personaUno.person.firstName) \(personaUno.person.lastName)"
                     
                     strMutu.appendString(strUno)
                 }
@@ -289,17 +270,7 @@ class expositoresDetalleViewController: UIViewController, UITableViewDelegate,UI
                     
                     if(per.person.isDataAvailable()){
                         
-                        var strDos = String()
-                        
-                        if per.person.salutation == "" {
-                            
-                            strDos = "\n\(per.person.firstName) \(per.person.lastName)"
-                            
-                        } else {
-                            
-                            strDos = "\n\(per.person.salutation) \(per.person.firstName) \(per.person.lastName)"
-                            
-                        }
+                        let strDos = "\n\(per.person.salutation) \(per.person.firstName) \(per.person.lastName)"
                         
                         strMutu.appendString(strDos)
                     }}}
@@ -393,17 +364,7 @@ class expositoresDetalleViewController: UIViewController, UITableViewDelegate,UI
             if(persona.isDataAvailable()){
                 
                 cell.separator.backgroundColor = UIColor.clearColor()
-                
-                if persona.salutation == "" {
-                    
-                    cell.label1.text = "\(persona.firstName) \(persona.lastName)"
-                    
-                } else {
-                    
-                    cell.label1.text = "\(persona.salutation) \(persona.firstName) \(persona.lastName)"
-                    
-                }
-                
+                cell.label1.text = "\(persona.salutation) \(persona.firstName) \(persona.lastName)"
                 cell.label1.textColor = UIColor.whiteColor()
             }
             
@@ -456,12 +417,12 @@ class expositoresDetalleViewController: UIViewController, UITableViewDelegate,UI
                 }
                 else if(idioma == "en"){
                     
-                    cell.label1.text = persona.bioLg2 as String
+                    cell.label1.text = persona.bio as String
                 }
                     
                 else if(idioma == "pt"){
                     
-                    cell.label1.text = persona.bioLg3 as String
+                    cell.label1.text = persona.bio as String
                 }
                     
                 else{
@@ -516,18 +477,7 @@ class expositoresDetalleViewController: UIViewController, UITableViewDelegate,UI
                 var personaUno = o.firstObject as! Actor
                 personaUno.fetchFromLocalDatastoreInBackground()
                 if personaUno.person.isDataAvailable() {
-                    
-                    var strUno = String()
-                    
-                    if personaUno.person.salutation == "" {
-                        
-                        strUno = "\(personaUno.person.firstName) \(personaUno.person.lastName)"
-                    } else {
-                        
-                        strUno = "\(personaUno.person.salutation) \(personaUno.person.firstName) \(personaUno.person.lastName)"
-                        
-                    }
-                    
+                    let strUno = "\(personaUno.person.salutation) \(personaUno.person.firstName) \(personaUno.person.lastName)"
                     strMutu.appendString(strUno)
                 }
        
@@ -535,19 +485,7 @@ class expositoresDetalleViewController: UIViewController, UITableViewDelegate,UI
                     let per = o.objectAtIndex(index) as! Actor
                     per.fetchFromLocalDatastoreInBackground()
                     if(per.person.isDataAvailable()){
-                        
-                        var strDos = String()
-                        
-                        if per.person.salutation == "" {
-                            
-                            strDos = "\n\(per.person.firstName) \(per.person.lastName)"
-                            
-                        } else {
-                            
-                            strDos = "\n\(per.person.salutation) \(per.person.firstName) \(per.person.lastName)"
-                            
-                        }
-                        
+                        let strDos = "\n\(per.person.salutation) \(per.person.firstName) \(per.person.lastName)"
                         strMutu.appendString(strDos)
             }}}
             

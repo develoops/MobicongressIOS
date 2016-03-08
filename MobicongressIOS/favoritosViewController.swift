@@ -14,13 +14,9 @@ class favoritosViewController: UIViewController,UITableViewDelegate,UITableViewD
     var favoritos = NSArray()
     var tabla = UITableView()
     var titleView : String!
-    var dias = NSArray()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         
     let nibName = UINib(nibName: "meetingCell", bundle:nil)
         self.tabla.registerNib(nibName, forCellReuseIdentifier: "Cell")
@@ -35,8 +31,7 @@ class favoritosViewController: UIViewController,UITableViewDelegate,UITableViewD
         let idioma = NSUserDefaults.standardUserDefaults().valueForKey("idioma") as! NSString
         if(idioma == "es")
         {
-//            labelNoFav.text = "No tienes eventos favoritos"
-            labelNoFav.text = "You don't have favorite events"
+            labelNoFav.text = "No tienes eventos favoritos"
             
         }
         else if(idioma == "en"){
@@ -99,91 +94,34 @@ class favoritosViewController: UIViewController,UITableViewDelegate,UITableViewD
                 if(task.result.count == 0){
                 }
                 else{
-                    let mutuDias = NSMutableArray()
-
+                    
                 if(task.completed == true){
                     self.favoritos = task.result.valueForKey("event") as! NSArray
                     self.tabla.backgroundColor = UIColor (rgba: self.meetingFav.palette.color2 as String)
-                 
-                    for object in self.favoritos.valueForKey("startDate") as!  NSArray{
-                        
-                        let formato = NSDateFormatter()
-                        formato.dateFormat = "yyyy-MM-dd"
-                        let dia = formato.stringFromDate(object as! NSDate)
-                        mutuDias.addObject(dia)
-                        
-                    }
-
-                    let set = NSSet(array: mutuDias as [AnyObject])
-            self.dias = set.allObjects.sorted { $0.localizedCaseInsensitiveCompare($1 as! String) == NSComparisonResult.OrderedAscending }
+                   // self.tabla.reloadData()
                 }
+                  //  self.tabla.reloadData()
             }
             return task
             
             }})
     }
     
-    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         
-        
-        return self.dias.count
-    }
-    
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
-        
-        let f = NSDateFormatter()
-        let formatoDias = NSDateFormatter()
-        formatoDias.dateFormat = "EEE dd"
-        f.dateFormat = "yyyy-MM-dd"
-        let dia = self.dias.objectAtIndex(section) as! String
-        let date = f.dateFromString(dia)
-        
-        return formatoDias.stringFromDate(date!)
+        return 1
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        let f = NSDateFormatter()
-        f.dateFormat = "yyyy-MM-dd"
-        let dia = self.dias.objectAtIndex(section) as! String
-        let date = f.dateFromString(dia)
-        
-        var calendario = NSCalendar.currentCalendar()
-
-        let componente = calendario.components(.YearCalendarUnit | .MonthCalendarUnit | .DayCalendarUnit, fromDate:date!)
-        let componente2 = calendario.components(.YearCalendarUnit | .MonthCalendarUnit | .DayCalendarUnit, fromDate:date!)
-        
-        componente2.day = componente2.day+1
-
-       let predicao = NSPredicate(format:"(startDate >= %@)AND(startDate <= %@)", calendario.dateFromComponents(componente)!,calendario.dateFromComponents(componente2)!)
-
-        let fa = self.favoritos.filteredArrayUsingPredicate(predicao)
-        
-        return fa.count
+        return self.favoritos.count ?? 0
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         var cell: meetingCell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! meetingCell
-        let f = NSDateFormatter()
-        f.dateFormat = "yyyy-MM-dd"
-        let dia = self.dias.objectAtIndex(indexPath.section) as! String
-        let date = f.dateFromString(dia)
         
-        var calendario = NSCalendar.currentCalendar()
-        
-        let componente = calendario.components(.YearCalendarUnit | .MonthCalendarUnit | .DayCalendarUnit, fromDate:date!)
-        let componente2 = calendario.components(.YearCalendarUnit | .MonthCalendarUnit | .DayCalendarUnit, fromDate:date!)
-        
-        componente2.day = componente2.day+1
-
-        let predicao = NSPredicate(format:"(startDate >= %@)AND(startDate <= %@)", calendario.dateFromComponents(componente)!,calendario.dateFromComponents(componente2)!)
-        
-        let fa = self.favoritos.filteredArrayUsingPredicate(predicao) as NSArray
-
-        let evento = fa.objectAtIndex(indexPath.row) as! Event
+        let evento = self.favoritos.objectAtIndex(indexPath.row) as! Event
         var tipoEvento = evento.type as NSString
         
         var lugarString = NSString()
@@ -208,17 +146,7 @@ class favoritosViewController: UIViewController,UITableViewDelegate,UITableViewD
             personaLocal.fetchFromLocalDatastoreInBackground()
             
             if personaLocal.isDataAvailable() {
-
-                var strUno = String()
-                
-                if personaUno.person.salutation == "" {
-                    
-                    strUno = "\(personaUno.person.firstName) \(personaUno.person.lastName)"
-                } else {
-                    
-                    strUno = "\(personaUno.person.salutation) \(personaUno.person.firstName) \(personaUno.person.lastName)"
-                    
-                }
+                let strUno = "\(personaUno.person.salutation) \(personaUno.person.firstName) \(personaUno.person.lastName)"
                 
                 strMutu.appendString(strUno)
                 
@@ -230,17 +158,7 @@ class favoritosViewController: UIViewController,UITableViewDelegate,UITableViewD
                 per.fetchFromLocalDatastoreInBackground()
                 if(per.person.isDataAvailable()){
                     
-                    var strDos = String()
-                    
-                    if per.person.salutation == "" {
-                        
-                        strDos = "\n\(per.person.firstName) \(per.person.lastName)"
-                        
-                    } else {
-                        
-                        strDos = "\n\(per.person.salutation) \(per.person.firstName) \(per.person.lastName)"
-                        
-                    }
+                    let strDos = "\n\(per.person.salutation) \(per.person.firstName) \(per.person.lastName)"
                     strMutu.appendString(strDos)
                     
                 }}}
@@ -317,23 +235,6 @@ class favoritosViewController: UIViewController,UITableViewDelegate,UITableViewD
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
-        let f = NSDateFormatter()
-        f.dateFormat = "yyyy-MM-dd"
-        let dia = self.dias.objectAtIndex(indexPath.section) as! String
-        let date = f.dateFromString(dia)
-        
-        var calendario = NSCalendar.currentCalendar()
-        
-        let componente = calendario.components(.YearCalendarUnit | .MonthCalendarUnit | .DayCalendarUnit, fromDate:date!)
-        let componente2 = calendario.components(.YearCalendarUnit | .MonthCalendarUnit | .DayCalendarUnit, fromDate:date!)
-        
-        componente2.day = componente2.day+1
-        
-        let predicao = NSPredicate(format:"(startDate >= %@)AND(startDate <= %@)", calendario.dateFromComponents(componente)!,calendario.dateFromComponents(componente2)!)
-        
-        let fa = self.favoritos.filteredArrayUsingPredicate(predicao) as NSArray
-
-        
         var textoLabel1 = "" as NSString!
         var textoLabel2 = "" as NSString!
         var textoLabel3 = "" as NSString!
@@ -344,7 +245,7 @@ class favoritosViewController: UIViewController,UITableViewDelegate,UITableViewD
         var heightTexto : CGFloat!
         var heightImagen:CGFloat!
         
-        let evento = fa.objectAtIndex(indexPath.row) as! Event
+        let evento = self.favoritos.objectAtIndex(indexPath.row) as! Event
         
         if (evento.icon.isDataAvailable()){
             heightImagen = 70
@@ -463,24 +364,7 @@ class favoritosViewController: UIViewController,UITableViewDelegate,UITableViewD
 
         self.tabla.deselectRowAtIndexPath(indexPath, animated: true)
         
-        let f = NSDateFormatter()
-        f.dateFormat = "yyyy-MM-dd"
-        let dia = self.dias.objectAtIndex(indexPath.section) as! String
-        let date = f.dateFromString(dia)
-        
-        var calendario = NSCalendar.currentCalendar()
-        
-        let componente = calendario.components(.YearCalendarUnit | .MonthCalendarUnit | .DayCalendarUnit, fromDate:date!)
-        let componente2 = calendario.components(.YearCalendarUnit | .MonthCalendarUnit | .DayCalendarUnit, fromDate:date!)
-        
-        componente2.day = componente2.day+1
-        
-        let predicao = NSPredicate(format:"(startDate >= %@)AND(startDate <= %@)", calendario.dateFromComponents(componente)!,calendario.dateFromComponents(componente2)!)
-        
-        let fa = self.favoritos.filteredArrayUsingPredicate(predicao) as NSArray
-
-        
-        let evento = fa.objectAtIndex(indexPath.row) as! Event
+        let evento = self.favoritos.objectAtIndex(indexPath.row) as! Event
         let detalle = self.storyboard?.instantiateViewControllerWithIdentifier("detalleViewController") as! detalleViewController
         detalle.evento = evento
         detalle.meetingApp = meetingFav

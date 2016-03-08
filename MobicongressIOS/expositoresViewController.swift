@@ -8,52 +8,33 @@
 
 import UIKit
 
-class expositoresViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, UISearchBarDelegate, UISearchDisplayDelegate{
+class expositoresViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchControllerDelegate{
 
     var tabla = UITableView()
     var meetingExpositores:MeetingApp!
     var mutuExpo = NSMutableArray()
     var titleView : String!
-    var searchController: UISearchController!
-    var searchArray = NSArray()
-    
-    override func viewWillAppear(animated: Bool) {
-        self.tabla .reloadData()
-        self.searchController.becomeFirstResponder()
-//        self.searchController.active = false
-        self.tabla.tableHeaderView = self.searchController.searchBar
 
-        
+    override func viewDidLoad() {
+
         var shorting: NSSortDescriptor = NSSortDescriptor(key: "sortingAux", ascending: true)
         var shortingName: NSSortDescriptor = NSSortDescriptor(key: "firstName", ascending: true)
         var shortingNameLast: NSSortDescriptor = NSSortDescriptor(key: "lastName", ascending: true)
-        
         for pe in self.meetingExpositores.persons.sortedArrayUsingDescriptors([shortingName,shortingNameLast,shorting]){
             
             if let a = pe as? Person{
                 
                 mutuExpo.addObject(a)
-                
-            }}
-        
-        
-
-    }
-    
-    override func viewDidLoad() {
-        
-        super.viewDidLoad()
-        self.view.addSubview(self.tabla)
-    
+        }}
         
         let nibName = UINib(nibName: "meetingCell", bundle:nil)
         self.tabla.registerNib(nibName, forCellReuseIdentifier: "Cell")
-        
+        super.viewDidLoad()
         
         self.tabla.delegate = self
         self.tabla.dataSource = self
         self.tabla.frame = CGRectMake(0, 0, view.frame.size.width, view.frame.size.height - 113)
-  
+        self.view.addSubview(self.tabla)
 
         let color = self.meetingExpositores.palette as ColorPalette
         
@@ -63,31 +44,8 @@ class expositoresViewController: UIViewController,UITableViewDelegate,UITableVie
         tabla.estimatedRowHeight = 100
         tabla.backgroundColor = UIColor .clearColor()
         tabla.separatorColor = UIColor .clearColor()
-        
-        if (NSString(string: UIDevice.currentDevice().systemVersion).doubleValue >= 8) {
-            
-            // Configure countrySearchController
-            self.searchController = ({
-                // Two setups provided below:
-                
-                let controller = UISearchController(searchResultsController: nil)
-                controller.searchResultsUpdater = self
-                controller.hidesNavigationBarDuringPresentation = false
-                controller.dimsBackgroundDuringPresentation = false
-                controller.searchBar.searchBarStyle = .Minimal
-                controller.searchBar.sizeToFit()
-                controller.searchBar.translucent = false
-                controller.searchBar.backgroundColor = UIColor (rgba: self.meetingExpositores.palette.color4 as String)
-                controller.searchBar.barTintColor = UIColor .whiteColor()
-                controller.searchBar.tintColor = UIColor .whiteColor()
-                controller.searchBar.barStyle = .Black
-                return controller
-            }())
-        }
-        
-        
     }
-    
+
     override func viewDidAppear(animated: Bool) {
         var b = UIBarButtonItem(title: "Buscar", style: .Plain, target: self, action: nil)
 //        self.navigationItem.rightBarButtonItems = [b]
@@ -107,20 +65,8 @@ class expositoresViewController: UIViewController,UITableViewDelegate,UITableVie
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        if (NSString(string: UIDevice.currentDevice().systemVersion).doubleValue >= 8) {
+           return self.mutuExpo.count ?? 0
         
-            if (self.searchController.active) {
-
-                return self.searchArray.count ?? 0
-            } else {
-                return self.mutuExpo.count ?? 0
-            }
-            
-        } else {
-            
-            return self.mutuExpo.count ?? 0
-        }
-    
     }
 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -135,35 +81,13 @@ class expositoresViewController: UIViewController,UITableViewDelegate,UITableVie
         var heightTexto : CGFloat!
         var heightImagen = 60 as CGFloat
         
-        var person = Person ()
+        let person = mutuExpo.objectAtIndex(indexPath.row) as! Person
         
-       // let person = mutuExpo.objectAtIndex(indexPath.row) as! Person
-        
-        if (NSString(string: UIDevice.currentDevice().systemVersion).doubleValue >= 8) {
-            
-            if (self.searchController.active) {
 
-                person = searchArray.objectAtIndex(indexPath.row) as! Person
-            } else {
-                person = mutuExpo.objectAtIndex(indexPath.row) as! Person
-            }
-            
-        } else {
-            person = mutuExpo.objectAtIndex(indexPath.row) as! Person
-        }
         
         if(person.isDataAvailable()){
         person.fetchFromLocalDatastoreInBackground()
-            
-            if person.salutation == "" {
-                
-                textoLabel1 = "\(person.firstName) \(person.lastName)"
-                
-            } else {
-                
-                textoLabel1 = "\(person.salutation) \(person.firstName) \(person.lastName)"
-                
-            }
+        textoLabel1 = "\(person.salutation) \(person.firstName) \(person.lastName)"
        
         if (person.place.isKindOfClass(Place))
         { let placePerson = person.place as Place
@@ -180,12 +104,12 @@ class expositoresViewController: UIViewController,UITableViewDelegate,UITableVie
                 }
                 else if(idioma == "en"){
                     
-                    textoLabel2 = placePerson.nameLg2
+                    textoLabel2 = placePerson.name
                 }
                     
                 else if(idioma == "pt"){
                     
-                    textoLabel2 = placePerson.nameLg3
+                    textoLabel2 = placePerson.name
                 }
                     
                 else{
@@ -249,23 +173,15 @@ class expositoresViewController: UIViewController,UITableViewDelegate,UITableVie
     {
         var cell: meetingCell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! meetingCell
         
-        var person = Person ()
-    
-        if (NSString(string: UIDevice.currentDevice().systemVersion).doubleValue >= 8) {
-            
-            if (self.searchController.active) {
-                person = searchArray.objectAtIndex(indexPath.row) as! Person
-            } else {
-                person = mutuExpo.objectAtIndex(indexPath.row) as! Person
-            }
-            
-        } else {
-            person = mutuExpo.objectAtIndex(indexPath.row) as! Person
-        }
+        
+           let  person = mutuExpo.objectAtIndex(indexPath.row) as! Person
+        
+
 
         if(person.isDataAvailable()){
         
         person.fetchFromLocalDatastoreInBackground()
+        "\(person.salutation) \(person.objectId) \(person.lastName)"
 
         cell.viewContent.backgroundColor = UIColor .whiteColor()
         
@@ -274,18 +190,13 @@ class expositoresViewController: UIViewController,UITableViewDelegate,UITableVie
         cell.viewContentRight.constant = 5
         cell.label1Top.constant = 15
         cell.label5Bot.constant = 15
-            
-            if person.salutation == "" {
-                
-              cell.label1.text =  "\(person.firstName) \(person.lastName)"
-                
-            } else {
-                
-              cell.label1.text =  "\(person.salutation) \(person.firstName) \(person.lastName)"
-                
-            }
        
+        cell.label1.text = "\(person.salutation) \(person.firstName) \(person.lastName)"
         cell.label1.font = cell.fontTextoGrande
+            
+
+            
+            dump("\(person.firstName)\(person.objectId)")
 
        if (person.place.isKindOfClass(Place))
        { let placePerson = person.place as Place
@@ -302,12 +213,12 @@ class expositoresViewController: UIViewController,UITableViewDelegate,UITableVie
             }
             else if(idioma == "en"){
                 
-                cell.label5.text = placePerson.nameLg2 as String
+                cell.label5.text = placePerson.name as String
             }
                 
             else if(idioma == "pt"){
                 
-                cell.label5.text = placePerson.nameLg3 as String
+                cell.label5.text = placePerson.name as String
             }
                 
             else{
@@ -350,75 +261,17 @@ class expositoresViewController: UIViewController,UITableViewDelegate,UITableVie
 
     }
     
-func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    
-    self.tabla.deselectRowAtIndexPath(indexPath, animated: true)
-    
-    if(self.searchController.active){
-    let person = searchArray.objectAtIndex(indexPath.row) as! Person
-    let detalle = self.storyboard?.instantiateViewControllerWithIdentifier("expositoresDetalleViewController") as! expositoresDetalleViewController
-            
-            if (NSString(string: UIDevice.currentDevice().systemVersion).doubleValue >= 8) {
-                
-                self.searchController.active = false
-                
-            }
+        func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        detalle.persona = person
-        detalle.evento = meetingExpositores
-        self.navigationController?.pushViewController(detalle, animated: true)
-    }
-    else{
+        self.tabla.deselectRowAtIndexPath(indexPath, animated: true)
+        
         let person = mutuExpo.objectAtIndex(indexPath.row) as! Person
         let detalle = self.storyboard?.instantiateViewControllerWithIdentifier("expositoresDetalleViewController") as! expositoresDetalleViewController
-        
-        if (NSString(string: UIDevice.currentDevice().systemVersion).doubleValue >= 8) {
-            
-            self.searchController.active = false
-            
-        }
-        
         detalle.persona = person
         detalle.evento = meetingExpositores
         self.navigationController?.pushViewController(detalle, animated: true)
-
-    }
+        
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        
-        if (NSString(string: UIDevice.currentDevice().systemVersion).doubleValue >= 8) {
-            searchController.active = false
-        }
-    }
     
   }
-
-extension expositoresViewController: UISearchResultsUpdating
-{
-    func updateSearchResultsForSearchController(searchController: UISearchController)
-    {
-        
-        let searchPredicate = NSPredicate(format: "(firstName contains[cd] %@) OR (lastName contains[cd] %@)", searchController.searchBar.text,searchController.searchBar.text)
-        let array = self.mutuExpo.filteredArrayUsingPredicate(searchPredicate)
-        
-        if array.count == 0 {
-            
-            self.searchArray = array
-            self.tabla.reloadData()
-            
-        } else {
-            
-            self.searchArray = array
-            self.tabla.reloadData()
-            
-        }
-    }
-    
-    func willDismissSearchController(searchController: UISearchController) {
-        self.searchController.active = false
-        self.searchArray = mutuExpo
-        self.tabla.reloadData()
-    }
-    
-}

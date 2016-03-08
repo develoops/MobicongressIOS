@@ -142,47 +142,15 @@ class libraryViewController: UIViewController,UITableViewDataSource,UITableViewD
     let file = self.meetingLibrary.objectAtIndex(indexPath.row) as! MobiFile
 
     let filesVC = self.storyboard?.instantiateViewControllerWithIdentifier("filesViewController") as! filesViewController
-        
-        // ARREGLAR
-        
-        let idioma = NSUserDefaults.standardUserDefaults().valueForKey("idioma") as! NSString
-        if(idioma == "es")
-        {
-            
-
-//             filesVC.texto = "Cargando \(file.title)"
-            filesVC.texto = "Loading \(file.title)"
-            
-        }
-        else if(idioma == "en"){
-            
-            
-            filesVC.texto = "Loading \(file.title)"
-            
-        }
-            
-        else if(idioma == "pt"){
-            
-            filesVC.texto = "Cargando \(file.title)"
-            
-            
-        }
-            
-        else{
-            
-            filesVC.texto = "Cargando \(file.title)"
-            
-        }
-        
         if(file.parseFileV1.url != nil){
  
             filesVC.urling = file.parseFileV1.url
-           
+            filesVC.texto = "Cargando \(file.title)"
         }
         else if (file.urlSource.length != 0){
 
             filesVC.urling = file.urlSource
-            
+            filesVC.texto = "Cargando \(file.title)"
         }
         else {
             

@@ -25,7 +25,6 @@ class MCTabBarViewController: UITabBarController,UITabBarControllerDelegate {
     
     override func viewWillAppear(animated: Bool) {
         
-        
 //        if (mostrarSplash == true) {
 //        
 //            splashIma = UIImageView(frame: CGRectMake(0, 0, self.view.frame.width, self.view.frame.height))
@@ -102,13 +101,13 @@ class MCTabBarViewController: UITabBarController,UITabBarControllerDelegate {
                 }
                 else if(idioma == "en"){
                     
-                    textoTab = vis.textTabLg2 as String
+                    textoTab = vis.textTab as String
                     
                 }
                     
                 else if(idioma == "pt"){
                     
-                    textoTab = vis.textTabLg3 as String
+                    textoTab = vis.textTab as String
                     
                 }
                     
@@ -144,13 +143,13 @@ class MCTabBarViewController: UITabBarController,UITabBarControllerDelegate {
                 }
                 else if(idioma == "en"){
                     
-                    textoTab = vis.textTabLg2 as String
+                    textoTab = vis.textTab as String
                     
                 }
                     
                 else if(idioma == "pt"){
                     
-                    textoTab = vis.textTabLg3 as String
+                    textoTab = vis.textTab as String
                     
                 }
                     
@@ -190,12 +189,12 @@ class MCTabBarViewController: UITabBarController,UITabBarControllerDelegate {
                 }
                 else if(idioma == "en"){
                     
-                    textoTab = vis.textTabLg2 as String
+                    textoTab = vis.textTab as String
                     
                 }
                 else if(idioma == "pt"){
                     
-                    textoTab = vis.textTabLg3 as String
+                    textoTab = vis.textTab as String
                     
                 }
                     

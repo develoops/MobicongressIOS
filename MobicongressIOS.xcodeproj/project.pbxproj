@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		1BE6932B1BB71D0D007C8028 /* OvalLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE6932A1BB71D0D007C8028 /* OvalLayer.swift */; };
 		1BE6932D1BB71D15007C8028 /* HolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE6932C1BB71D15007C8028 /* HolderView.swift */; };
-		1BEAB54F1BB9EB5B00DC3F79 /* splash55.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BEAB54B1BB9EB5B00DC3F79 /* splash55.png */; };
-		1BEAB5501BB9EB5B00DC3F79 /* splash47.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BEAB54C1BB9EB5B00DC3F79 /* splash47.png */; };
-		1BEAB5511BB9EB5B00DC3F79 /* splash4.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BEAB54D1BB9EB5B00DC3F79 /* splash4.png */; };
-		1BEAB5521BB9EB5B00DC3F79 /* splash35.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BEAB54E1BB9EB5B00DC3F79 /* splash35.png */; };
+		1BEA26831BCB19F200094ACF /* splash4.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BEA267F1BCB19F200094ACF /* splash4.png */; };
+		1BEA26841BCB19F200094ACF /* splash35.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BEA26801BCB19F200094ACF /* splash35.png */; };
+		1BEA26851BCB19F200094ACF /* splash47.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BEA26811BCB19F200094ACF /* splash47.png */; };
+		1BEA26861BCB19F200094ACF /* splash55.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BEA26821BCB19F200094ACF /* splash55.png */; };
 		1BFA60831B98FFD500AD96F0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BFA60821B98FFD500AD96F0 /* Images.xcassets */; };
 		3C10B78C1AADF1D3000BE175 /* expositoresDetalleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C10B78B1AADF1D3000BE175 /* expositoresDetalleViewController.swift */; };
 		3C10B78E1AADFC6E000BE175 /* staffDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C10B78D1AADFC6E000BE175 /* staffDetailViewController.swift */; };
@@ -112,10 +112,10 @@
 /* Begin PBXFileReference section */
 		1BE6932A1BB71D0D007C8028 /* OvalLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OvalLayer.swift; sourceTree = "<group>"; };
 		1BE6932C1BB71D15007C8028 /* HolderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HolderView.swift; sourceTree = "<group>"; };
-		1BEAB54B1BB9EB5B00DC3F79 /* splash55.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash55.png; sourceTree = "<group>"; };
-		1BEAB54C1BB9EB5B00DC3F79 /* splash47.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash47.png; sourceTree = "<group>"; };
-		1BEAB54D1BB9EB5B00DC3F79 /* splash4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash4.png; sourceTree = "<group>"; };
-		1BEAB54E1BB9EB5B00DC3F79 /* splash35.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash35.png; sourceTree = "<group>"; };
+		1BEA267F1BCB19F200094ACF /* splash4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash4.png; sourceTree = "<group>"; };
+		1BEA26801BCB19F200094ACF /* splash35.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash35.png; sourceTree = "<group>"; };
+		1BEA26811BCB19F200094ACF /* splash47.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash47.png; sourceTree = "<group>"; };
+		1BEA26821BCB19F200094ACF /* splash55.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash55.png; sourceTree = "<group>"; };
 		1BFA60821B98FFD500AD96F0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3C10B78B1AADF1D3000BE175 /* expositoresDetalleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = expositoresDetalleViewController.swift; sourceTree = "<group>"; };
 		3C10B78D1AADFC6E000BE175 /* staffDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = staffDetailViewController.swift; sourceTree = "<group>"; };
@@ -151,7 +151,7 @@
 		3CF053A61AE14E4B009ED331 /* tripadvisor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tripadvisor.png; sourceTree = "<group>"; };
 		3CF053AA1AE15E46009ED331 /* webViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = webViewController.swift; sourceTree = "<group>"; };
 		3CF85BAF1ADF2A8000E7A8EF /* galleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = galleryViewController.swift; sourceTree = "<group>"; };
-		81BA81451A49DA1800E65899 /* MEXTESOL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MEXTESOL.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		81BA81451A49DA1800E65899 /* PMKT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PMKT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81BA81761A49E0D500E65899 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		81BA81781A49E0DB00E65899 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		81BA817A1A49E0E500E65899 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -249,7 +249,7 @@
 		81BA81461A49DA1800E65899 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				81BA81451A49DA1800E65899 /* MEXTESOL.app */,
+				81BA81451A49DA1800E65899 /* PMKT.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -379,10 +379,10 @@
 				3CA2A6161AB650DB00A069BF /* left@2x.png */,
 				3CA2A6171AB650DB00A069BF /* right@2x.png */,
 				3CC49E0D1AB6069000B4939C /* cafe.png */,
-				1BEAB54B1BB9EB5B00DC3F79 /* splash55.png */,
-				1BEAB54C1BB9EB5B00DC3F79 /* splash47.png */,
-				1BEAB54D1BB9EB5B00DC3F79 /* splash4.png */,
-				1BEAB54E1BB9EB5B00DC3F79 /* splash35.png */,
+				1BEA267F1BCB19F200094ACF /* splash4.png */,
+				1BEA26801BCB19F200094ACF /* splash35.png */,
+				1BEA26811BCB19F200094ACF /* splash47.png */,
+				1BEA26821BCB19F200094ACF /* splash55.png */,
 				3CC49E071AB5FED800B4939C /* novedades@3x.png */,
 				3CC49E011AB5FD6500B4939C /* directorio@3x.png */,
 				3CC49E091AB5FF0E00B4939C /* eem@3x.png */,
@@ -516,7 +516,7 @@
 			);
 			name = MobicongressIOS;
 			productName = ParseStarterProject;
-			productReference = 81BA81451A49DA1800E65899 /* MEXTESOL.app */;
+			productReference = 81BA81451A49DA1800E65899 /* PMKT.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -558,7 +558,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BEAB5521BB9EB5B00DC3F79 /* splash35.png in Resources */,
 				3C83D47A1AD33718005437D0 /* pin.png in Resources */,
 				C3C7FA561AB2ED3A00251FF7 /* StarFull@2x.png in Resources */,
 				3CA2A6191AB650DB00A069BF /* right@2x.png in Resources */,
@@ -568,27 +567,28 @@
 				3C40A4AF1AC3582E00458CC5 /* acercaDe@2x.png in Resources */,
 				C371A3A91AAB99A0008DB429 /* meetingCell.xib in Resources */,
 				3CC49E0C1AB5FFBF00B4939C /* program@2x.png in Resources */,
+				1BEA26831BCB19F200094ACF /* splash4.png in Resources */,
 				3C8429A81AD3167700B14011 /* celda_favorito.png in Resources */,
 				3C454B0B1AB5D7A5008BB700 /* speaker_nofoto.png in Resources */,
+				1BEA26841BCB19F200094ACF /* splash35.png in Resources */,
 				3C40A4B21AC3582E00458CC5 /* favorite@2x.png in Resources */,
 				C3FF70471A9CEC2B0046CB75 /* Main.storyboard in Resources */,
+				1BEA26861BCB19F200094ACF /* splash55.png in Resources */,
 				1BFA60831B98FFD500AD96F0 /* Images.xcassets in Resources */,
 				3CBF280E1AC35F7E0017859F /* programa@2x.png in Resources */,
 				C3FF704B1A9CEC2B0046CB75 /* LaunchScreen.storyboard in Resources */,
 				3CA2A6181AB650DB00A069BF /* left@2x.png in Resources */,
 				3C40A4B01AC3582E00458CC5 /* ads@2x.png in Resources */,
 				3CC49E0E1AB6069000B4939C /* cafe.png in Resources */,
+				1BEA26851BCB19F200094ACF /* splash47.png in Resources */,
 				3CF053A71AE14E4B009ED331 /* tripadvisor.png in Resources */,
 				3C40A4B11AC3582E00458CC5 /* biblioteca@2x.png in Resources */,
 				3CC49E081AB5FED800B4939C /* novedades@3x.png in Resources */,
 				3CB995D51AABF6F50084E379 /* detailView.xib in Resources */,
 				C33B904C1AC4985D00123EB4 /* directiva@2x.png in Resources */,
-				1BEAB5501BB9EB5B00DC3F79 /* splash47.png in Resources */,
-				1BEAB54F1BB9EB5B00DC3F79 /* splash55.png in Resources */,
 				C31990681A9DBC1000F64F1E /* Meeting.storyboard in Resources */,
 				3C40A4B31AC3582E00458CC5 /* quienesSomos@2x.png in Resources */,
 				3CC49E021AB5FD6500B4939C /* directorio@3x.png in Resources */,
-				1BEAB5511BB9EB5B00DC3F79 /* splash4.png in Resources */,
 				3CC49E0A1AB5FF0E00B4939C /* eem@3x.png in Resources */,
 				3C40A4B61AC3583A00458CC5 /* directorio@2x.png in Resources */,
 			);
@@ -776,7 +776,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: felix Sanhueza (U5A54XUB2N)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: felix Sanhueza (U5A54XUB2N)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -785,8 +785,8 @@
 				INFOPLIST_FILE = MobicongressIOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = MEXTESOL;
-				PROVISIONING_PROFILE = "db0c455a-2722-45da-b68a-a1cb4f39ac62";
+				PRODUCT_NAME = PMKT;
+				PROVISIONING_PROFILE = "df618313-6581-4fb1-8f1f-10396a053322";
 				SWIFT_OBJC_BRIDGING_HEADER = "MobicongressIOS/MobicongressIOS-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -799,7 +799,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: felix Sanhueza (U5A54XUB2N)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: felix Sanhueza (U5A54XUB2N)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -808,10 +808,10 @@
 				INFOPLIST_FILE = MobicongressIOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = MEXTESOL;
-				PROVISIONING_PROFILE = "db0c455a-2722-45da-b68a-a1cb4f39ac62";
+				PRODUCT_NAME = PMKT;
+				PROVISIONING_PROFILE = "df618313-6581-4fb1-8f1f-10396a053322";
 				SWIFT_OBJC_BRIDGING_HEADER = "MobicongressIOS/MobicongressIOS-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

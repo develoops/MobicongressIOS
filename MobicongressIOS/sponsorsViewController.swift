@@ -50,22 +50,18 @@ class sponsorsViewController: UIViewController,UICollectionViewDataSource,UIColl
         
         self.title = titleView
         
-        meetingSponsors.headerImage.parseFileV1.getDataInBackground().continueWithBlock { (task:BFTask!) -> AnyObject! in
+        if !(meetingSponsors.headerImage.parseFileV1.getData() == nil) {
             
-            if(task.result != nil){
             self.crearHuea()
-            self.toolBar.translucent = false
-            self.toolBar.barTintColor = UIColor (rgba: self.meetingSponsors.palette.color4 as String)
-            self.toolBar.tintColor = UIColor.whiteColor()
-            self.toolBarHeight.constant = 44
+            toolBar.translucent = false
+            toolBar.barTintColor = UIColor (rgba: meetingSponsors.palette.color4 as String)
+            toolBar.tintColor = UIColor.whiteColor()
+            toolBarHeight.constant = 44
             
-            }
-            else{
-                self.toolBarHeight.constant = 0
-
-            }
-            return task
-
+        } else {
+            
+            toolBarHeight.constant = 0
+            
         }
         
         if !(meetingSponsors.headerVideo.parseFileV1.getData() == nil) {
@@ -161,22 +157,21 @@ class sponsorsViewController: UIViewController,UICollectionViewDataSource,UIColl
         let idioma = NSUserDefaults.standardUserDefaults().valueForKey("idioma") as! NSString
         if(idioma == "es")
         {
-
-//             item = UIBarButtonItem(title:"Mapa Comercial" as String, style: UIBarButtonItemStyle.Plain, target: self, action:"funRoomSponsor:")
             
-            item = UIBarButtonItem(title:"Commercial Map" as String, style: UIBarButtonItemStyle.Plain, target: self, action:"funRoomSponsor:")
+            item = UIBarButtonItem(title:"Mapa Comercial" as String, style: UIBarButtonItemStyle.Plain, target: self, action:"funRoomSponsor:")
+            
             
         }
         else if(idioma == "en"){
             
-
+            
             item = UIBarButtonItem(title:"Commercial Map" as String, style: UIBarButtonItemStyle.Plain, target: self, action:"funRoomSponsor:")
             
         }
             
         else if(idioma == "pt"){
             
-
+            
             item = UIBarButtonItem(title:"Mapa Negocios" as String, style: UIBarButtonItemStyle.Plain, target: self, action:"funRoomSponsor:")
             
         }
@@ -184,12 +179,9 @@ class sponsorsViewController: UIViewController,UICollectionViewDataSource,UIColl
         else{
             
             item = UIBarButtonItem(title:"Mapa Comercial" as String, style: UIBarButtonItemStyle.Plain, target: self, action:"funRoomSponsor:")
-            
-
-            
         }
         
-
+        
         item.width = (view.frame.width / 1.1)
         mutu.addObject(item)
         
@@ -218,7 +210,35 @@ class sponsorsViewController: UIViewController,UICollectionViewDataSource,UIColl
         var mutu = NSMutableArray()
         var flexibleSpace:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
         
-        var item = UIBarButtonItem(title:"Hoteles" as String, style: UIBarButtonItemStyle.Plain, target: self, action:"funRoomSponsor2:")
+        var item = UIBarButtonItem()
+        
+        let idioma = NSUserDefaults.standardUserDefaults().valueForKey("idioma") as! NSString
+        if(idioma == "es")
+        {
+            
+            item = UIBarButtonItem(title:"Hospedaje" as String, style: UIBarButtonItemStyle.Plain, target: self, action:"funRoomSponsor2:")
+            
+            
+        }
+        else if(idioma == "en"){
+            
+            
+            item = UIBarButtonItem(title:"Accommodation" as String, style: UIBarButtonItemStyle.Plain, target: self, action:"funRoomSponsor2:")
+            
+        }
+            
+        else if(idioma == "pt"){
+            
+            
+            item = UIBarButtonItem(title:"Hospedagem" as String, style: UIBarButtonItemStyle.Plain, target: self, action:"funRoomSponsor2:")
+            
+        }
+            
+        else{
+            
+            item = UIBarButtonItem(title:"Hospedaje" as String, style: UIBarButtonItemStyle.Plain, target: self, action:"funRoomSponsor2:")
+        }
+        
         item.width = (view.frame.width / 1.1)
         mutu.addObject(item)
         
@@ -228,17 +248,39 @@ class sponsorsViewController: UIViewController,UICollectionViewDataSource,UIColl
     }
     
     func funRoomSponsor2(sender: UIBarButtonItem) {
-        var mapaVc = self.storyboard?.instantiateViewControllerWithIdentifier("mapaViewController") as! mapaViewController
         
+        let storyboard = UIStoryboard(name: "Meeting", bundle: nil)
+        let filesVC = storyboard.instantiateViewControllerWithIdentifier("filesViewController") as! filesViewController
+        filesVC.urling = meetingSponsors.status
         
-        meetingSponsors.headerImage.fetchFromLocalDatastoreInBackground()
-        var image = UIImage (data: meetingSponsors.headerVideo.parseFileV1.getData()!, scale: 3.0)
+        let idioma = NSUserDefaults.standardUserDefaults().valueForKey("idioma") as! NSString
+        if(idioma == "es")
+        {
+            
+            filesVC.texto = "Cargando Hospedaje..."
+            
+            
+        }
+        else if(idioma == "en"){
+            
+            
+            filesVC.texto = "Loading Accommodation..."
+            
+        }
+            
+        else if(idioma == "pt"){
+            
+            filesVC.texto = "Carregando Hospedagem..."
+            
+        }
+            
+        else{
+            
+            filesVC.texto = "Cargando Hospedaje..."
+            
+        }
         
-        mapaVc.planoImagen = image
-        mapaVc.puntoX = -50
-        mapaVc.puntoY = -50
-        
-        self.navigationController?.pushViewController(mapaVc, animated: true)
+        self.navigationController?.pushViewController(filesVC, animated: true)
         
     }
     
@@ -367,37 +409,7 @@ class sponsorsViewController: UIViewController,UICollectionViewDataSource,UIColl
                 
                 let toWebDetail = storyboard.instantiateViewControllerWithIdentifier("filesViewController") as! filesViewController
                 toWebDetail.urling = stand.company.website
-                
-                // ARREGLAR
-                
-                let idioma = NSUserDefaults.standardUserDefaults().valueForKey("idioma") as! NSString
-                if(idioma == "es")
-                {
-                    
-                    //toWebDetail.texto = "Cargando Stand de \(stand.company.name)"
-                    toWebDetail.texto = "Loading \(stand.company.name)'s Info"
-                    
-                }
-                else if(idioma == "en"){
-                    
-                    
-                    toWebDetail.texto = "Loading \(stand.company.name)'s Info"
-                    
-                }
-                    
-                else if(idioma == "pt"){
-                    
-                    toWebDetail.texto = "Cargando sitio web de \(stand.company.name)"
-
-                    
-                }
-                    
-                else{
-                    
-                    toWebDetail.texto = "Cargando sitio web de \(stand.company.name)"
-                    
-                }
-                
+                toWebDetail.texto = "Cargando sitio web de \(stand.company.name)"
                 self.navigationController?.pushViewController(toWebDetail, animated: true)
             }
             

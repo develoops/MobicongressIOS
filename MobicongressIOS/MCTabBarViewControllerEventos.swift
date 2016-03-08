@@ -17,8 +17,23 @@ class MCTabBarViewControllerEventos: UITabBarController,UITabBarControllerDelega
     
     func esconderSplash() {
         
-        splashIma.hidden = true
+        let bounds = splashIma.bounds
+        let smallFrame = CGRectInset(splashIma.frame, splashIma.frame.size.width / 4, splashIma.frame.size.height / 4)
+        let finalFrame = CGRectOffset(smallFrame, 0, bounds.size.height)
+        
+        let snapshot = splashIma.snapshotViewAfterScreenUpdates(false)
+        snapshot.frame = splashIma.frame
+        view.addSubview(snapshot)
         splashIma.removeFromSuperview()
+        
+        UIView.animateKeyframesWithDuration(0.5, delay: 0, options: .CalculationModeCubic, animations: {
+            
+            UIView.addKeyframeWithRelativeStartTime(0.5, relativeDuration: 0.5) {
+                snapshot.frame = finalFrame
+                snapshot.alpha = 0
+            }
+            }, completion: nil)
+    
         
     }
     
@@ -26,7 +41,21 @@ class MCTabBarViewControllerEventos: UITabBarController,UITabBarControllerDelega
         
         super.viewDidLoad()
         
-        var timer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: Selector("esconderSplash"), userInfo: nil, repeats: false)
+        let defol = NSUserDefaults.standardUserDefaults()
+        let i = defol.integerForKey("splash") as Int
+        
+        if i == 0 {
+            
+            var timer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: Selector("esconderSplash"), userInfo: nil, repeats: false)
+            
+            defol.setInteger(1, forKey: "splash")
+            defol.synchronize()
+            
+        } else {
+        
+        var timer = NSTimer.scheduledTimerWithTimeInterval(0.75, target: self, selector: Selector("esconderSplash"), userInfo: nil, repeats: false)
+            
+        }
         
         
         splashIma = UIImageView(frame: CGRectMake(0, 0, self.view.frame.width, self.view.frame.height))
@@ -69,7 +98,6 @@ class MCTabBarViewControllerEventos: UITabBarController,UITabBarControllerDelega
     
     override func viewDidAppear(animated: Bool) {
         self.confingVista()
-
     }
     
     func confingVista(){
@@ -106,15 +134,15 @@ class MCTabBarViewControllerEventos: UITabBarController,UITabBarControllerDelega
                 }
                 else if(idioma == "en"){
                     
-                    textoTab = vi.textTabLg2 as String
-                    textoTab2 = vi.altTextTabLg2 as String
+                    textoTab = vi.textTab as String
+                    textoTab2 = vi.altTextTab as String
                     
                 }
                     
                 else if(idioma == "pt"){
                     
-                    textoTab = vi.textTabLg3 as String
-                    textoTab2 = vi.altTextTabLg3 as String
+                    textoTab = vi.textTab as String
+                    textoTab2 = vi.altTextTab as String
                     
                 }
                     
@@ -161,13 +189,13 @@ class MCTabBarViewControllerEventos: UITabBarController,UITabBarControllerDelega
                 }
                 else if(idioma == "en"){
                     
-                    textoTab = vi.textTabLg2 as String
+                    textoTab = vi.textTab as String
                     
                 }
                     
                 else if(idioma == "pt"){
                     
-                    textoTab = vi.textTabLg3 as String
+                    textoTab = vi.textTab as String
                     
                 }
                     
@@ -191,15 +219,11 @@ class MCTabBarViewControllerEventos: UITabBarController,UITabBarControllerDelega
                 
         else if (vi.nameView == "navSponsors"){
                 
-
                 if(NSUserDefaults.standardUserDefaults().boolForKey("listo"))
                 {
                     engineSincro.taskete(gestionLlamaos.llamadoModuloCompany())
                     
-                    
-                    
                     println("sincroCompany")
-               
                 }
                 
                 let vistaSponsors = stb.instantiateViewControllerWithIdentifier(vi.nameView as String) as! navigationViewControllerMeeting
@@ -216,12 +240,12 @@ class MCTabBarViewControllerEventos: UITabBarController,UITabBarControllerDelega
                 }
                 else if(idioma == "en"){
                     
-                    textoTab = vi.textTabLg2 as String
+                    textoTab = vi.textTab as String
                     
                 }
                 else if(idioma == "pt"){
                     
-                    textoTab = vi.textTabLg3 as String
+                    textoTab = vi.textTab as String
                     
                 }
                     
@@ -260,13 +284,13 @@ class MCTabBarViewControllerEventos: UITabBarController,UITabBarControllerDelega
                 }
                 else if(idioma == "en"){
                     
-                    textoTab = vi.textTabLg2 as String
+                    textoTab = vi.textTab as String
                     
                 }
                     
                 else if(idioma == "pt"){
                     
-                    textoTab = vi.textTabLg3 as String
+                    textoTab = vi.textTab as String
                     
                 }
                     
@@ -306,13 +330,13 @@ class MCTabBarViewControllerEventos: UITabBarController,UITabBarControllerDelega
                 }
                 else if(idioma == "en"){
                     
-                    textoTab = vi.textTabLg2 as String
+                    textoTab = vi.textTab as String
                     
                 }
                     
                 else if(idioma == "pt"){
                     
-                    textoTab = vi.textTabLg3 as String
+                    textoTab = vi.textTab as String
                     
                 }
                     
@@ -351,13 +375,13 @@ class MCTabBarViewControllerEventos: UITabBarController,UITabBarControllerDelega
                 }
                 else if(idioma == "en"){
                     
-                    textoTab = vi.textTabLg2 as String
+                    textoTab = vi.textTab as String
                     
                 }
                     
                 else if(idioma == "pt"){
                     
-                    textoTab = vi.textTabLg3 as String
+                    textoTab = vi.textTab as String
                     
                 }
                     

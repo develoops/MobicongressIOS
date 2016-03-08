@@ -15,7 +15,6 @@ class sponsorDetailViewController: UIViewController, UITableViewDelegate,UITable
     var companyAboutInfo: Facade!
     var meetingApp: MeetingApp!
     var confVista: View!
-    var gallery = [UIImage]()
     var detailEventView = NSBundle.mainBundle().loadNibNamed("detailView", owner: nil, options: nil)[0] as! detailView
     
     override func viewDidLoad() {
@@ -32,26 +31,6 @@ class sponsorDetailViewController: UIViewController, UITableViewDelegate,UITable
         detailEventView.tablaDescripcion.dataSource = self
     
         companyAboutInfo.fetchFromLocalDatastoreInBackground()
-        
-        for object in companyAboutInfo.company.gallery{
-            
-            let a = object as! Company
-
-            a.fetchFromLocalDatastoreInBackground().continueWithBlock({ (task:BFTask!) -> AnyObject! in
-                
-                let logo = task.result.valueForKey("logo") as! MobiFile
-                
-                return  logo.parseFileV1.getDataInBackground().continueWithBlock({ (taskLogo:BFTask!) -> AnyObject! in
-                    
-                    let image = UIImage(data: taskLogo.result as! NSData)
-
-                    self.gallery.append(image!)
-                    
-                    return task
-                })
-            })
-            
-        }
         
         detailEventView.frame = CGRectMake(0, 0, view.layer.frame.width, view.layer.frame.height - 110)
         detailEventView.backgroundColor = UIColor (rgba: meetingApp.palette.color2 as String)
@@ -91,8 +70,8 @@ class sponsorDetailViewController: UIViewController, UITableViewDelegate,UITable
     
     func funTwitter(sender: UIBarButtonItem) {
         println("twitiiir")
+        
     }
-    
     func funFacebook(sender: UIBarButtonItem) {
         println("feibu")
         
@@ -324,7 +303,7 @@ class sponsorDetailViewController: UIViewController, UITableViewDelegate,UITable
                         cell.imagenTop.constant = 0
                         cell.imagenBot.constant = 0
                         cell.imagenHeight.constant = 90
-                        cell.imagenWidth.constant = 90
+                        cell.imagenWidth.constant = 0
                         cell.imagen.contentMode = UIViewContentMode.ScaleAspectFit
                         
                     }})
@@ -353,6 +332,7 @@ class sponsorDetailViewController: UIViewController, UITableViewDelegate,UITable
         }
             
         else if (tableView == detailEventView.tablaSpeaker){
+            
             
             return cell
         }

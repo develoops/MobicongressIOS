@@ -61,40 +61,10 @@ class StaffViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         
         let persona = actor.person as Person
         if(persona.isDataAvailable()){
-            
-            
-            if persona.salutation == "" {
-                
-                cell.textoLabel1 = "\(persona.firstName) \(persona.lastName)"
-            } else {
-                
-                cell.textoLabel1 = "\(persona.salutation) \(persona.firstName) \(persona.lastName)"
-                
-            }
+            cell.textoLabel1 = "\(persona.salutation) \(persona.firstName) \(persona.lastName)"
             
             var rolActor = self.staffInfo.hostedCompany.actors.objectAtIndex(indexPath.row) as! Actor
-
-            let idioma = NSUserDefaults.standardUserDefaults().valueForKey("idioma") as! NSString
-            if(idioma == "es")
-            {
-                cell.textoLabel2 = rolActor.charge as String!
-                
-            }
-            else if(idioma == "en"){
-                
-                cell.textoLabel2 = rolActor.chargeLg2 as String!
-            }
-                
-            else if(idioma == "pt"){
-                
-                cell.textoLabel2 = rolActor.chargeLg3 as String!
-            }
-                
-            else{
-                cell.textoLabel2 = rolActor.charge as String!
-                
-            }
-            
+            cell.textoLabel2 = rolActor.charge
             }}
         
         let label1:UILabel = UILabel(frame: CGRectMake(0, 0, cell.frame.width, CGFloat.max))
@@ -166,15 +136,7 @@ class StaffViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             persona.fetchFromLocalDatastoreInBackground()
 
             cell.separator.backgroundColor = UIColor.clearColor()
-            
-            if persona.salutation == "" {
-                
-                cell.label1.text = "\(persona.firstName) \(persona.lastName)"
-            } else {
-                
-                cell.label1.text = "\(persona.salutation) \(persona.firstName) \(persona.lastName)"
-                
-            }
+            cell.label1.text = "\(persona.salutation) \(persona.firstName) \(persona.lastName)"
             
             cell.label1.font = cell.fontTextoGrande
             
@@ -189,12 +151,12 @@ class StaffViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             }
             else if(idioma == "en"){
                 
-                cell.label5.text = rolActor.chargeLg2 as String!
+                cell.label5.text = rolActor.charge as String!
             }
                 
             else if(idioma == "pt"){
                 
-                cell.label5.text = rolActor.chargeLg3 as String!
+                cell.label5.text = rolActor.charge as String!
             }
                 
             else{

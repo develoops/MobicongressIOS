@@ -52,9 +52,6 @@ class gestionLlamaos: NSObject {
         q.includeKey("meetingApps.companies")
         q.includeKey("meetingApps.companies.company")
         q.includeKey("meetingApps.companies.company.logo")
-        q.includeKey("meetingApps.companies.company.gallery")
-        q.includeKey("meetingApps.companies.company.gallery.logo")
-
         q.includeKey("meetingApps.place")
         q.includeKey("meetingApps.venues")
         q.includeKey("meetingApps.venues.maps")
@@ -428,17 +425,12 @@ class func llamadoModuloPrograma() ->PFQuery
         q.includeKey("meetingApps.companies.company.view.toolBar")
         q.includeKey("meetingApps.companies.company.actors")
         q.includeKey("meetingApps.companies.company.catalog")
+        q.includeKey("meetingApps.companies.company.gallery")
         q.includeKey("meetingApps.companies.company.headerImage")
         q.includeKey("meetingApps.companies.company.headerVideo")
         q.includeKey("meetingApps.companies.company.library")
         q.includeKey("meetingApps.companies.company.location")
         q.includeKey("meetingApps.companies.company.logo")
-        q.includeKey("meetingApps.companies.company.gallery")
-        q.includeKey("meetingApps.companies.company.gallery.company")
-        q.includeKey("meetingApps.companies.company.gallery.company.logo")
-        q.includeKey("meetingApps.companies.company.gallery.company.logo.parseFileV1")
-
-
         
         
         return q

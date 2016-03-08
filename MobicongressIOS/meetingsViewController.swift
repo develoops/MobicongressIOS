@@ -96,13 +96,13 @@ class meetingsViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         var cell: meetingCell = tabla.dequeueReusableCellWithIdentifier("Cell") as! meetingCell
         
-        if device == .iPhone6Plus {
+        if device == .iPhone6Plus || device == .iPhone6sPlus {
             
             widthCell = cell.frame.width
             
         }
         
-        if device == .iPhone6 {
+        if device == .iPhone6 || device == .iPhone6s {
             
             widthCell = cell.frame.width - 80
  
@@ -220,12 +220,12 @@ class meetingsViewController: UIViewController,UITableViewDelegate,UITableViewDa
         }
         else if(idioma == "en"){
             
-            cell.label1.text = meet.nameLg2 as String
+            cell.label1.text = meet.name as String
         }
             
         else if(idioma == "pt"){
             
-            cell.label1.text = meet.nameLg3 as String
+            cell.label1.text = meet.name as String
         }
             
         else{
@@ -274,7 +274,7 @@ class meetingsViewController: UIViewController,UITableViewDelegate,UITableViewDa
             cell.separator.backgroundColor = UIColor .clearColor()
             cell.imagenWidth.constant = 0
             cell.viewInfoLeft.constant = 20
-            cell.viewContentTop.constant = 0
+            cell.viewContentTop.constant = 5
         
         }
         
@@ -287,7 +287,8 @@ class meetingsViewController: UIViewController,UITableViewDelegate,UITableViewDa
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.tabla.deselectRowAtIndexPath(indexPath, animated: true)
         let meet = self.arrayMeetings.objectAtIndex(indexPath.row) as! MeetingApp
-
+        
+        
         let stb = UIStoryboard(name: "Meeting", bundle: nil)
         if(NSUserDefaults.standardUserDefaults().boolForKey("listo"))
         {
@@ -302,8 +303,9 @@ class meetingsViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         let vistaEventos = stb.instantiateViewControllerWithIdentifier("tabEventos") as! MCTabBarViewControllerEventos
 
-               for eventif in meet.events{
-        eventif.fetchFromLocalDatastoreInBackground()
+        for eventif in meet.events{
+        
+            eventif.fetchFromLocalDatastoreInBackground()
         
     }
         

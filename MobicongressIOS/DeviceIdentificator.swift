@@ -79,6 +79,16 @@ public enum Device {
     /// ![iPhone 6 Plus](https://support.apple.com/library/APPLE/APPLECARE_ALLGEOS/SP706/SP706-iphone_6_plus-mul.png)
     case iPhone6Plus
     
+    /// Device is an [iPhone 6s](https://support.apple.com/kb/SP726)
+    ///
+    /// ![Image](https://support.apple.com/library/APPLE/APPLECARE_ALLGEOS/SP726/SP726-iphone6s-gray-select-2015.png)
+    case iPhone6s
+    
+    /// Device is an [iPhone 6s Plus](https://support.apple.com/kb/SP727)
+    ///
+    /// ![Image](https://support.apple.com/library/APPLE/APPLECARE_ALLGEOS/SP727/SP727-iphone6s-plus-gray-select-2015.png)
+    case iPhone6sPlus
+    
     /// Device is an [iPad 2](https://support.apple.com/kb/SP622)
     /// ![iPad 2](https://support.apple.com/library/APPLE/APPLECARE_ALLGEOS/SP622/SP622_01-ipad2-mul.png)
     case iPad2
@@ -143,6 +153,8 @@ public enum Device {
         case "iPhone6,1", "iPhone6,2":                  self = iPhone5s
         case "iPhone7,2":                               self = iPhone6
         case "iPhone7,1":                               self = iPhone6Plus
+        case "iPhone8,1":                               self = iPhone6s
+        case "iPhone8,2":                               self = iPhone6sPlus
         case "iPad2,1", "iPad2,2", "iPad2,3", "iPad2,4":self = iPad2
         case "iPad3,1", "iPad3,2", "iPad3,3":           self = iPad3
         case "iPad3,4", "iPad3,5", "iPad3,6":           self = iPad4
@@ -280,6 +292,8 @@ extension Device: Printable {
         case .iPhone5s:                             return "iPhone 5S"
         case .iPhone6:                              return "iPhone 6"
         case .iPhone6Plus:                          return "iPhone 6 Plus"
+        case .iPhone6s:                              return "iPhone 6s"
+        case .iPhone6sPlus:                          return "iPhone 6s Plus"
         case .iPad2:                                return "iPad 2"
         case .iPad3:                                return "iPad 3"
         case .iPad4:                                return "iPad 4"

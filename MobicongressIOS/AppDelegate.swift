@@ -22,19 +22,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //--------------------------------------
     //  MARK: - UIApplicationDelegate
     //--------------------------------------
+    
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         let defol = NSUserDefaults.standardUserDefaults()
         let i = defol.integerForKey("lanza") as Int
         println(i)
-        //var pre = NSLocale.preferredLanguages()[0] as! NSString
-        var pre = "es" as! NSString
+        var pre = NSLocale.preferredLanguages()[0] as! NSString
+        //var pre = "es" as! NSString
 
         defol.setInteger(i+1, forKey: "lanza")
         println(pre.substringToIndex(2))
         defol.setValue(pre.substringToIndex(2), forKey: "idioma")
         defol.synchronize()
+        
         
         CompanyApp.registerSubclass()
         Actor.registerSubclass()
@@ -54,12 +56,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Tool.registerSubclass()
         View.registerSubclass()
         Wall.registerSubclass()
-        
+         
         Parse.enableLocalDatastore()
     
         //
         
-        Parse.setApplicationId("NOT9JCi4qoZ9o8SVNPhcrsv2kAZlgosADiTABu27", clientKey: "ODtYStNy9SrT1LEfsizvUiworVQVNR7DjvqOWbgH")
+        Parse.setApplicationId("E9xPHRRWXnCHUzkoLnVRwglar83y7p2GIc6bU1XY", clientKey: "d9Xs8TV5RA7YcxvXVqPCRVe1pLCc3vgPhpxPR4tG")
         
         //
         
@@ -109,6 +111,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         var navigationBarAppearace = UINavigationBar.appearance()
         //navigationBarAppearace.translucent = false
+    }
+    
+    func applicationWillTerminate(application: UIApplication) {
+        
+        let defol = NSUserDefaults.standardUserDefaults()
+        defol.setInteger(0, forKey: "splash")
+        defol.synchronize()
+        
+        
     }
     
 

@@ -21,10 +21,10 @@ class MCLaunchViewController: UIViewController,UIAlertViewDelegate {
         super.viewDidLoad()
         splashIma = UIImageView(frame: CGRectMake(0, 0, self.view.frame.width, self.view.frame.height))
         
-        progress = UIProgressView (frame: CGRect(x: self.view.frame.width * 0.2, y: self.view.frame.height - 85, width: self.view.frame.width * 0.6, height: 20))
+        progress = UIProgressView (frame: CGRect(x: self.view.frame.width * 0.2, y: self.view.frame.height - 110, width: self.view.frame.width * 0.6, height: 20))
         
         progress.setProgress(0.1, animated: true)
-        label = UILabel(frame: CGRect(x: 0, y: self.view.frame.height - 110, width: self.view.frame.width, height: 20))
+        label = UILabel(frame: CGRect(x: 0, y: self.view.frame.height - 130, width: self.view.frame.width, height: 20))
         label.textAlignment = NSTextAlignment.Center
         label.text = ""
         label.font = UIFont(name: "ArialMT", size: 13)
@@ -39,13 +39,13 @@ class MCLaunchViewController: UIViewController,UIAlertViewDelegate {
             
         }
         
-        if device == .iPhone6Plus {
+        if device == .iPhone6Plus || device == .iPhone6sPlus {
 
             splashIma.image = UIImage (named:"splash55")
             
         }
         
-        if device == .iPhone6 {
+        if device == .iPhone6 || device == .iPhone6s {
             
             splashIma.image = UIImage (named:"splash47")
             
@@ -134,8 +134,9 @@ class MCLaunchViewController: UIViewController,UIAlertViewDelegate {
         query!.includeKey("companies")
         query!.includeKey("palette")
         query!.includeKey("meetingApps")
+        query!.includeKey("meetingApps.events")
         query!.includeKey("meetingApps.walls")
-        query!.includeKey("meetingApps.library")
+      //  query!.includeKey("meetingApps.library")
         //query!.includeKey("meetingApps.gallery")
         query!.includeKey("meetingApps.place")
 //        query!.includeKey("meetingApps.venues")
@@ -149,7 +150,13 @@ class MCLaunchViewController: UIViewController,UIAlertViewDelegate {
         query!.includeKey("meetingApps.events.place")
         query!.includeKey("meetingApps.events.library")
         query!.includeKey("meetingApps.persons")
-        //query!.includeKey("meetingApps.persons.actors")
+        
+        // ARREGLAR!
+        
+       // query!.includeKey("meetingApps.persons.actors")
+        
+        //
+        
         query!.includeKey("meetingApps.events.actors.person")
         query!.includeKey("companySplash")
         query!.includeKey("logo")
@@ -168,6 +175,7 @@ class MCLaunchViewController: UIViewController,UIAlertViewDelegate {
                 
                 
                 self.companyApp =  task.result.firstObject as! CompanyApp
+                
                 NSNotificationCenter.defaultCenter().postNotificationName("sigue", object: nil)
             }
             else{
@@ -185,6 +193,7 @@ class MCLaunchViewController: UIViewController,UIAlertViewDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let meetingBarController = storyboard.instantiateViewControllerWithIdentifier("tabMeeting")as! MCTabBarViewController
         meetingBarController.companyApp = self.companyApp
+        
         meetingBarController.mostrarSplash = true
 
         meetingBarController.stb = storyboard

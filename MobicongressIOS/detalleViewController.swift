@@ -114,37 +114,37 @@ class detalleViewController: UIViewController, UITableViewDelegate,UITableViewDa
             
             if(idioma == "es")
             {
-
-//                          sender.title = "Favorito"
-                            sender.title = "Favorite"
+                
+                sender.title = "Favorito"
+                
                 
             }
             else if(idioma == "en"){
                 
-
-                            sender.title = "Favorite"
+                
+                sender.title = "Favorite"
             }
                 
             else if(idioma == "pt"){
                 
-                            sender.title = "Favorito"
-
+                sender.title = "Favorito"
+                
             }
                 
             else{
-
+                
                 sender.title = "Favorito"
                 
             }
             
-
+            
             detailEventView.tablaHeader.reloadData()
             defolto.setBool(false, forKey: "fav")
         }
             
         else {
             
-           
+            
             
             if(defolto.boolForKey("listo") || defolto.boolForKey("local")){
                 self.guardaFav()
@@ -155,19 +155,19 @@ class detalleViewController: UIViewController, UITableViewDelegate,UITableViewDa
                 if(idioma == "es")
                 {
                     
-//                sender.title = "Remover Fav"
-                    sender.title = "UnFavorite"
+                    sender.title = "Remover Favorito"
+                    
                     
                 }
                 else if(idioma == "en"){
                     
                     
-                    sender.title = "UnFavorite"
+                    sender.title = "Remove Favorite"
                 }
                     
                 else if(idioma == "pt"){
                     
-                sender.title = "Remover Fav"
+                    sender.title = "Remover Fav"
                     
                 }
                     
@@ -178,7 +178,7 @@ class detalleViewController: UIViewController, UITableViewDelegate,UITableViewDa
                     
                 }
                 
-
+                
                 defolto.setBool(true, forKey: "fav")
             }
         }
@@ -187,66 +187,67 @@ class detalleViewController: UIViewController, UITableViewDelegate,UITableViewDa
     
     func tituloFav() -> NSString
         
-        {
-            
-            let idioma = NSUserDefaults.standardUserDefaults().valueForKey("idioma") as! NSString
-            
-            if(defolto.boolForKey("fav") == true){
-                
-                if(idioma == "es")
-                {
-                    
-                    //                sender.title = "Remover Fav"
-                    return "UnFavorite"
-                    
-                }
-                else if(idioma == "en"){
-                    
-                    
-                    return "UnFavorite"
-                }
-                    
-                else if(idioma == "pt"){
-                    
-                    return "Remover Fav"
-                    
-                }
-                    
-                else{
-                    
-                    return  "Remover Fav"
-                    
-                }
+    {
         
-            } else {
+        let idioma = NSUserDefaults.standardUserDefaults().valueForKey("idioma") as! NSString
+        
+        if(defolto.boolForKey("fav") == true){
+            
+            if(idioma == "es")
+            {
                 
-                if(idioma == "es")
-                {
-                    
-                    //                          sender.title = "Favorito"
-                    return "Favorite"
-                    
-                }
-                else if(idioma == "en"){
-                    
-                    
-                    return "Favorite"
-                }
-                    
-                else if(idioma == "pt"){
-                    
-                    return "Favorito"
-                    
-                }
-                    
-                else{
-                    
-                    return "Favorito"
-                    
-                }
+                return  "Remover Favorito"
                 
+                
+            }
+            else if(idioma == "en"){
+                
+                
+                return "Remove Favorite"
+            }
+                
+            else if(idioma == "pt"){
+                
+                return "Remover Fav"
+                
+            }
+                
+            else{
+                
+                return  "Remover Fav"
+                
+            }
+            
+        } else {
+            
+            if(idioma == "es")
+            {
+                
+                return "Favorito"
+                
+                
+            }
+            else if(idioma == "en"){
+                
+                
+                return "Favorite"
+            }
+                
+            else if(idioma == "pt"){
+                
+                return "Favorito"
+                
+            }
+                
+            else{
+                
+                return "Favorito"
+                
+            }
+            
         }
     }
+
     func checkFav() {
         let user = PFUser.currentUser()!
         let quer = Rating.query()
@@ -304,13 +305,13 @@ class detalleViewController: UIViewController, UITableViewDelegate,UITableViewDa
                         }
                         else if(idioma == "en"){
                             
-                            titulo = tab.textLg2
+                            titulo = tab.text
                         }
                             
-                        else if(idioma == "pt"){
-                            
-                            titulo = tab.textLg3
-                        }
+//                        else if(idioma == "pt"){
+//                            
+//                            titulo = tab.textLg3
+//                        }
                             
                         else{
                             titulo = tab.text
@@ -375,11 +376,11 @@ class detalleViewController: UIViewController, UITableViewDelegate,UITableViewDa
     func funDocs(sender: UIBarButtonItem) {
         
 
-    let filesVC = self.storyboard?.instantiateViewControllerWithIdentifier("libraryViewController") as! libraryViewController
+        let filesVC = self.storyboard?.instantiateViewControllerWithIdentifier("libraryViewController") as! libraryViewController
         
-        filesVC.meetingLibrary = self.evento.library
+            filesVC.meetingLibrary = self.evento.library
 
-        self.navigationController?.pushViewController(filesVC, animated: true)
+            self.navigationController?.pushViewController(filesVC, animated: true)
         
         println("vamo a Docs")
     }
@@ -600,17 +601,7 @@ class detalleViewController: UIViewController, UITableViewDelegate,UITableViewDa
                     let actorete = o.objectAtIndex(index) as! Actor
                     if(actorete.isDataAvailable()){
                     if(actorete.person.isDataAvailable()){
-                        
-                        if actorete.person.salutation == "" {
-                            
-                            textoLabel1 = "\(actorete.person.firstName) \(actorete.person.lastName)"
-                            
-                            
-                        } else {
-                            
-                            textoLabel1 = "\(actorete.person.salutation) \(actorete.person.firstName) \(actorete.person.lastName)"
-                    
-                        }
+                        textoLabel1 = "\(actorete.person.salutation) \(actorete.person.firstName) \(actorete.person.lastName)"
                         
                         let idioma = NSUserDefaults.standardUserDefaults().valueForKey("idioma") as! NSString
                         if(idioma == "es")
@@ -620,13 +611,13 @@ class detalleViewController: UIViewController, UITableViewDelegate,UITableViewDa
                         }
                         else if(idioma == "en"){
                             
-                            textoLabel2 = actorete.chargeLg2
+                            textoLabel2 = actorete.charge
                         }
                             
-                        else if(idioma == "pt"){
-                            
-                            textoLabel2 = actorete.chargeLg3
-                        }
+//                        else if(idioma == "pt"){
+//                            
+//                            textoLabel2 = actorete.chargeLg3
+//                        }
                             
                         else{
                             textoLabel2 = actorete.charge
@@ -654,13 +645,13 @@ class detalleViewController: UIViewController, UITableViewDelegate,UITableViewDa
             }
             else if(idioma == "en"){
                 
-                textoLabel1 = evento.detailsLg2
+                textoLabel1 = evento.details
             }
                 
-            else if(idioma == "pt"){
-                
-                textoLabel1 = evento.detailsLg3
-            }
+//            else if(idioma == "pt"){
+//                
+//                textoLabel1 = evento.detailsLg3
+//            }
                 
             else{
                 textoLabel1 = evento.details
@@ -1024,21 +1015,7 @@ class detalleViewController: UIViewController, UITableViewDelegate,UITableViewDa
                     actorete.person.fetchFromLocalDatastoreInBackground()
             
                     if(actorete.person.isDataAvailable()){
-                        
-                        if actorete.person.salutation == "" {
-                            
-                            cell.label1.text = "\(actorete.person.firstName) \(actorete.person.lastName)"
-                            
-                            
-                        } else {
-                            
-                            
-                            cell.label1.text = "\(actorete.person.salutation) \(actorete.person.firstName) \(actorete.person.lastName)"
-                            
-                            
-                        }
-                        
-        
+                        cell.label1.text = "\(actorete.person.salutation) \(actorete.person.firstName) \(actorete.person.lastName)"
                         cell.label1.textColor = UIColor .darkGrayColor()
                         cell.label1.font = cell.fontTextoMediano
                         
@@ -1050,13 +1027,13 @@ class detalleViewController: UIViewController, UITableViewDelegate,UITableViewDa
                         }
                         else if(idioma == "en"){
                             
-                            cell.label2.text = actorete.chargeLg2 as String
+                            cell.label2.text = actorete.charge as String
                         }
                             
-                        else if(idioma == "pt"){
-                            
-                            cell.label2.text = actorete.chargeLg3 as String
-                        }
+//                        else if(idioma == "pt"){
+//                            
+//                            cell.label2.text = actorete.chargeLg3 as String
+//                        }
                             
                         else{
                             cell.label2.text = actorete.charge as String
@@ -1111,14 +1088,14 @@ class detalleViewController: UIViewController, UITableViewDelegate,UITableViewDa
                 }
                 else if(idioma == "en"){
                     
-                    cell.label1.text = evento.detailsLg2 as String
+                    cell.label1.text = evento.details as String
                 }
                     
                     
-                else if(idioma == "pt"){
-                    
-                    cell.label1.text = evento.detailsLg3 as String
-                }
+//                else if(idioma == "pt"){
+//                    
+//                    cell.label1.text = evento.detailsLg3 as String
+//                }
                     
                 else{
                     cell.label1.text = evento.details as String
@@ -1298,16 +1275,7 @@ class detalleViewController: UIViewController, UITableViewDelegate,UITableViewDa
         
         if personaUno.person.isDataAvailable() {
             
-            var strUno = String()
-            
-            if personaUno.person.salutation == "" {
-                
-                strUno = "\(personaUno.person.firstName) \(personaUno.person.lastName)"
-            } else {
-                
-                strUno = "\(personaUno.person.salutation) \(personaUno.person.firstName) \(personaUno.person.lastName)"
-                
-            }
+            let strUno = "\(personaUno.person.salutation) \(personaUno.person.firstName) \(personaUno.person.lastName)"
             strMutu.appendString(strUno)
         }
         
@@ -1317,17 +1285,7 @@ class detalleViewController: UIViewController, UITableViewDelegate,UITableViewDa
             per.fetchFromLocalDatastoreInBackground()
             if(per.person.isDataAvailable()){
                 
-                var strDos = String()
-                
-                if per.person.salutation == "" {
-                    
-                    strDos = "\n\(per.person.firstName) \(per.person.lastName)"
-                    
-                } else {
-                    
-                    strDos = "\n\(per.person.salutation) \(per.person.firstName) \(per.person.lastName)"
-                    
-                }
+                let strDos = "\n\(per.person.salutation) \(per.person.firstName) \(per.person.lastName)"
                 strMutu.appendString(strDos)
             }
         }
@@ -1359,19 +1317,6 @@ class detalleViewController: UIViewController, UITableViewDelegate,UITableViewDa
             detalle.meetingApp = meetingApp
             self.navigationController?.pushViewController(detalle, animated: true)
         }
-        else if (tableView == detailEventView.tablaSpeaker) {
-        
-
-            let evento = self.anidaosFiltraos.objectAtIndex(indexPath.row) as! Event
-          
-            let actors = evento.actors.objectAtIndex(indexPath.row) as! Actor
-            let detallePersona = self.storyboard?.instantiateViewControllerWithIdentifier("expositoresDetalleViewController") as! expositoresDetalleViewController
-            
-            detallePersona.persona = actors.person
-            self.navigationController?.pushViewController(detallePersona, animated: true)
-
-        }
-
     }
     
     override func didReceiveMemoryWarning() {
@@ -1382,53 +1327,24 @@ class detalleViewController: UIViewController, UITableViewDelegate,UITableViewDa
         
         var timer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: Selector("removerAvisoFavorito"), userInfo: nil, repeats: false)
         
-        var texto = NSString()
-        
-        let idioma = NSUserDefaults.standardUserDefaults().valueForKey("idioma") as! NSString
-        if(idioma == "es")
-        {
-//
-//            texto = " Agregado a Favoritos"
-            texto = " Added to Favorites"
-            
-        }
-        else if(idioma == "en"){
-            
-            texto = " Added to Favorites"
-
-        }
-            
-        else if(idioma == "pt"){
-            
-                        texto = " Agregado a Favoritos"
-
-        }
-            
-        else{
-            
-                        texto = " Agregado a Favoritos"
-
-            
-        }
-        
         var label1:UILabel!
         
-        if device == .iPhone6Plus {
+        if device == .iPhone6Plus || device == .iPhone6sPlus {
             
             label1 = UILabel(frame: CGRectMake(0, 0, CGFloat.max, 25))
             label1.textAlignment = NSTextAlignment.Center
             label1.font = UIFont(name: "ArialMT", size: 15)
-            label1.text = texto as String
+            label1.text = "Agregado a Favoritos"
             label1.sizeToFit()
             
         }
         
-        if device == .iPhone6 {
+        if device == .iPhone6 || device == .iPhone6s {
             
             label1 = UILabel(frame: CGRectMake(0, 0, CGFloat.max, 25))
             label1.textAlignment = NSTextAlignment.Center
             label1.font = UIFont(name: "ArialMT", size: 15)
-            label1.text = texto as String
+            label1.text = "Agregado a Favoritos"
             label1.sizeToFit()
             
         }
@@ -1439,7 +1355,7 @@ class detalleViewController: UIViewController, UITableViewDelegate,UITableViewDa
             label1.numberOfLines = 0
             label1.textAlignment = NSTextAlignment.Center
             label1.font = UIFont(name: "ArialMT", size: 15)
-            label1.text = texto as String
+            label1.text = "Agregado a Favoritos"
             label1.sizeToFit()
             
         }
@@ -1450,7 +1366,7 @@ class detalleViewController: UIViewController, UITableViewDelegate,UITableViewDa
             label1.numberOfLines = 0
             label1.textAlignment = NSTextAlignment.Center
             label1.font = UIFont(name: "ArialMT", size: 15)
-            label1.text = texto as String
+            label1.text = "Agregado a Favoritos"
             label1.sizeToFit()
         
         }
@@ -1461,14 +1377,14 @@ class detalleViewController: UIViewController, UITableViewDelegate,UITableViewDa
             label1.numberOfLines = 0
             label1.textAlignment = NSTextAlignment.Center
             label1.font = UIFont(name: "ArialMT", size: 15)
-            label1.text = texto as String
+            label1.text = "Agregado a Favoritos"
             label1.sizeToFit()
             
         }
         
         acFavorito = UILabel (frame: CGRectMake(((view.frame.width * 0.5) - (label1.frame.width + 20) / 2), detailEventView.frame.height - 80 , label1.frame.width + 20, 25))
         
-        acFavorito.text = texto as String
+        acFavorito.text = "Agregado a Favoritos"
         acFavorito.textColor = UIColor .whiteColor()
         acFavorito.textAlignment = NSTextAlignment.Center
         acFavorito.font = UIFont(name: "ArialMT", size: 15)

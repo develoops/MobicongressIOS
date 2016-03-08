@@ -22,14 +22,10 @@ class ratingViewController: UIViewController,FloatRatingViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       // self.llamado()
-
+        // self.llamado()
+        
         view2.frame = CGRectMake(0, 0, self.view.layer.frame.width, self.view.layer.frame.height - 64)
         view2.backgroundColor = UIColor.whiteColor()
-        
-        
-        
-        
         
         self.estrellitas()
         view.insertSubview(view2, belowSubview: floatRatingView)
@@ -37,9 +33,6 @@ class ratingViewController: UIViewController,FloatRatingViewDelegate {
         self.comentario.borderStyle = .RoundedRect
         self.comentario.textAlignment = .Left
         
-        
-
-       
         self.navigationItem.setRightBarButtonItem(self.botonEnviar, animated: true)
         
         self.view.addSubview(self.comentario)
@@ -47,47 +40,41 @@ class ratingViewController: UIViewController,FloatRatingViewDelegate {
         let idioma = NSUserDefaults.standardUserDefaults().valueForKey("idioma") as! NSString
         if(idioma == "es")
         {
-//            label.text = "Pulse para calificar"
-//            self.title = "Evaluar"
+            label.text = "Pulse para calificar"
+            self.title = "Evaluar"
+            self.comentario.placeholder = "Escriba aquí su comentario"
+            self.botonEnviar = UIBarButtonItem(title: "Enviar", style: .Plain, target: self, action: "enviar:")
             
-            label.text = "Click a STAR to rate"
-            self.title = "Review"
-            
-            //                    self.comentario.placeholder = "Escriba aquí su comentario"
-            self.comentario.placeholder = "Type your comment here"
-            
-//            self.botonEnviar = UIBarButtonItem(title: "Enviar", style: .Plain, target: self, action: "enviar:")
-            self.botonEnviar = UIBarButtonItem(title: "Send", style: .Plain, target: self, action: "enviar:")
             
         }
         else if(idioma == "en"){
             
-            label.text = "Click a STAR to rate"
-            self.title = "Review"
+            label.text = "Click to rate"
+            self.title = "Rate"
             self.botonEnviar = UIBarButtonItem(title: "Send", style: .Plain, target: self, action: "enviar:")
             self.comentario.placeholder = "Type your comment here"
         }
             
         else if(idioma == "pt"){
             
-            label.text = "Presione las estrellas para calificar"
-            self.title = "Evaluar"
+            label.text = "Clique para classificar"
+            self.title = "Avaliar"
             self.comentario.placeholder = "Escreva seu comentário aqui"
             self.botonEnviar = UIBarButtonItem(title: "Mandar", style: .Plain, target: self, action: "enviar:")
         }
             
         else{
-            label.text = "Presione las estrellas para calificar"
+            label.text = "Pulse para calificar"
             self.title = "Evaluar"
             self.comentario.placeholder = "Escriba aquí su comentario"
             self.botonEnviar = UIBarButtonItem(title: "Enviar", style: .Plain, target: self, action: "enviar:")
             
         }
         
-
+        
         label.textColor = UIColor .lightGrayColor()
         
-   
+        
     }
     
     

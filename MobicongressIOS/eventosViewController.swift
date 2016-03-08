@@ -29,11 +29,17 @@ class eventosViewController: UIViewController,UITableViewDelegate,UITableViewDat
     var defolto = NSUserDefaults()
     var titleView1 : String!
     var titleView2 : String!
+    var botonBienvenida : UIButton!
+    var viewBienvenida : UIView!
+    
+    var cambioDiaAvanza = NSNumber()
+    var cambioDiaRetrocede = NSNumber()
     
     var searchController: UISearchController!
     var searchArray:NSArray!
     
     override func viewWillAppear(animated: Bool) {
+        //animateTable()
         self.tabla .reloadData()
     }
     
@@ -41,6 +47,7 @@ class eventosViewController: UIViewController,UITableViewDelegate,UITableViewDat
         super.viewDidLoad()
         self.emmValor()
         self.filtre()
+        
         let nibName = UINib(nibName: "meetingCell", bundle:nil)
         self.tabla.registerNib(nibName, forCellReuseIdentifier: "Cell")
         
@@ -48,7 +55,7 @@ class eventosViewController: UIViewController,UITableViewDelegate,UITableViewDat
         self.tabla.delegate = self
         self.tabla.frame = CGRectMake(0, 44, view.frame.size.width, view.frame.size.height - 154)
         self.view.addSubview(self.tabla)
-        
+       
         self.agregarBotonVolver()
         tabla.rowHeight = UITableViewAutomaticDimension
         tabla.backgroundColor = UIColor (rgba: eventos.palette.color2 as String)
@@ -67,9 +74,8 @@ class eventosViewController: UIViewController,UITableViewDelegate,UITableViewDat
         view.addGestureRecognizer(leftSwipe)
         
         if (NSString(string: UIDevice.currentDevice().systemVersion).doubleValue >= 8) {
-
         
-            // Configure countrySearchController
+        // Configure countrySearchController
         self.searchController = ({
             // Two setups provided below:
             
@@ -91,11 +97,127 @@ class eventosViewController: UIViewController,UITableViewDelegate,UITableViewDat
         })()
             
         }
+        
+        var textoBienvenidaIdioma = String()
+        
+        let idioma = NSUserDefaults.standardUserDefaults().valueForKey("idioma") as! NSString
+        if(idioma == "es"){
+            if !(eventos.details.length == 0) {
+                textoBienvenidaIdioma = eventos.details as String
+            } else {
+                textoBienvenidaIdioma = ""
+            }
+        } else if(idioma == "en") {
+            if !(eventos.details.length == 0) {
+                textoBienvenidaIdioma = eventos.details as String
+            } else {
+                textoBienvenidaIdioma = ""
+            }
+        } else if(idioma == "pt"){
+            if !(eventos.details.length == 0) {
+                textoBienvenidaIdioma = eventos.details as String
+            } else {
+                textoBienvenidaIdioma = ""
+            }
+        } else{
+            textoBienvenidaIdioma = eventos.details as String
+        }
+        
+        if !(textoBienvenidaIdioma == "") {
+            
+            let defol = NSUserDefaults.standardUserDefaults()
+            let i = defol.integerForKey("lanza") as Int
+            print("ANTES \(i)")
+
+            if i == 1 {
+                
+                viewBienvenida = UIView (frame: CGRectMake(0, 0, view.frame.width, view.frame.height))
+                viewBienvenida.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0.6)
+            
+                var fondo:UIImageView = UIImageView (frame: CGRectMake(0, 0, viewBienvenida.frame.width, viewBienvenida.frame.height))
+                fondo.backgroundColor = UIColor.darkGrayColor().colorWithAlphaComponent(0.8)
+            
+                var darkBlur = UIBlurEffect(style: UIBlurEffectStyle.Light)
+                var blurView = UIVisualEffectView(effect: darkBlur)
+                blurView.frame = fondo.bounds
+                fondo.addSubview(blurView)
+            
+                var fondoMensaje:UIImageView = UIImageView (frame: CGRectMake(10, 10, viewBienvenida.frame.width - 20 , viewBienvenida.frame.height - 130))
+                fondoMensaje.backgroundColor = UIColor.darkGrayColor().colorWithAlphaComponent(0.8)
+                fondoMensaje.layer.cornerRadius = 8.0
+            
+                var textViewMensaje:UITextView = UITextView (frame: CGRectMake(fondoMensaje.frame.origin.x + 10, fondoMensaje.frame.origin.y + 10, fondoMensaje.frame.width - 20, fondoMensaje.frame.height - 70))
+                textViewMensaje.text = textoBienvenidaIdioma as String
+                textViewMensaje.backgroundColor = UIColor.clearColor()
+                textViewMensaje.textColor = UIColor.whiteColor()
+                textViewMensaje.editable = false
+                
+                botonBienvenida = UIButton (frame: CGRectMake((tabla.frame.width/2) - 100, tabla.frame.height - 15, 200, 40))
+                botonBienvenida.backgroundColor = UIColor.darkGrayColor().colorWithAlphaComponent(0.9)
+                botonBienvenida.setTitle("OK", forState: UIControlState.Normal)
+                botonBienvenida.addTarget(self, action: "botonBienvenidaPulsa:", forControlEvents:UIControlEvents.TouchUpInside)
+                botonBienvenida.layer.cornerRadius = 8.0
+            
+            
+                viewBienvenida.addSubview(fondo)
+                viewBienvenida.addSubview(fondoMensaje)
+                viewBienvenida.addSubview(textViewMensaje)
+                viewBienvenida.addSubview(botonBienvenida)
+                view.insertSubview(viewBienvenida, aboveSubview: view)
+            }
+        }
+        
+    }
     
+    func botonBienvenidaPulsa(sender: UIButton!) {
+        
+        let bounds = viewBienvenida.bounds
+        let smallFrame = CGRectInset(viewBienvenida.frame, viewBienvenida.frame.size.width / 4, viewBienvenida.frame.size.height / 4)
+        let finalFrame = CGRectOffset(smallFrame, 0, bounds.size.height)
+        
+        let snapshot = viewBienvenida.snapshotViewAfterScreenUpdates(false)
+        snapshot.frame = viewBienvenida.frame
+        view.addSubview(snapshot)
+        viewBienvenida.removeFromSuperview()
+        
+        UIView.animateKeyframesWithDuration(0.75, delay: 0, options: .CalculationModeCubic, animations: {
+
+            UIView.addKeyframeWithRelativeStartTime(0.5, relativeDuration: 0.5) {
+                snapshot.frame = finalFrame
+                snapshot.alpha = 0
+            }
+            }, completion: nil)
+        
+        let defol = NSUserDefaults.standardUserDefaults()
+        let i = defol.integerForKey("lanza") as Int
+        
+        defol.setInteger(i+1, forKey: "lanza")
+        
+        print("DESPUES \(i)")
+    
+        //animateTable()
     }
     
     func emmValor(){
-        let fecha = NSDate(timeIntervalSinceNow:-(60*60*3))
+        
+        var fecha = NSDate()
+        var numero = eventos.size.doubleValue
+        
+        if eventos.size != 0 {
+            
+            fecha = NSDate(timeIntervalSinceNow:-(60*60*numero))
+            print("ESTOY USANDO LA ZONA DE PARSE \(fecha)")
+            print("LA FECHA ES \(fecha) ")
+            
+            
+        } else {
+            
+            fecha = NSDate(timeIntervalSinceNow:-(60*60*6))
+            print("no estoy usando desde parse")
+            print("LA FECHA ES \(fecha) ")
+            
+        }
+        
         let valor = eventos.startDate.compare(fecha).rawValue - eventos.endDate.compare(fecha).rawValue
         
         println(eventos.startDate.compare(fecha).rawValue)
@@ -110,6 +232,7 @@ class eventosViewController: UIViewController,UITableViewDelegate,UITableViewDat
             eem = false
             
         }
+        
     }
 
     func cambioDias(){
@@ -137,6 +260,7 @@ class eventosViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
     
     func filtre(){
+
         if (self.eventos.events.count != 0){
         let arrayaPaFechas = self.eventos.events.valueForKey("startDate") as! NSArray
             
@@ -177,6 +301,17 @@ class eventosViewController: UIViewController,UITableViewDelegate,UITableViewDat
 
         var formatoDias = NSDateFormatter()
         formatoDias.dateFormat = "EEE dd"
+            
+            let idioma = NSUserDefaults.standardUserDefaults().valueForKey("idioma") as! NSString
+            if(idioma == "es"){
+                formatoDias.locale = NSLocale(localeIdentifier: "es_ES")
+            } else if(idioma == "en"){
+                formatoDias.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+            } else if(idioma == "pt"){
+                formatoDias.locale = NSLocale(localeIdentifier: "pt_BR")
+            } else{
+                formatoDias.locale = NSLocale(localeIdentifier: "es_ES")
+            }
         
         let fechaAhora = NSDate(timeIntervalSinceNow:-60*60*3)
             
@@ -237,16 +372,22 @@ class eventosViewController: UIViewController,UITableViewDelegate,UITableViewDat
         if (self.diaIndicaor < self.arra.count-1)
         {
             self.diaIndicaor = self.diaIndicaor+1
+        } else {
+            cambioDiaAvanza = 1
         }
         self.filtre()
+        //animateTable()
     }
     
     func retrocedeDia(){
         if (self.diaIndicaor != 0)
         {
             self.diaIndicaor = self.diaIndicaor-1
+        } else {
+            cambioDiaRetrocede = 1
         }
         self.filtre()
+        //animateTable()
     }
     func agregarBotonVolver(){
 
@@ -604,8 +745,7 @@ class eventosViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         self.tabla.deselectRowAtIndexPath(indexPath, animated: true)
         
-        if(self.searchController.active){
-        let evento = self.searchArray.objectAtIndex(indexPath.row) as! Event
+        let evento = self.arraya.objectAtIndex(indexPath.row) as! Event
         let detalle = self.storyboard?.instantiateViewControllerWithIdentifier("detalleViewController") as! detalleViewController
         
         if (NSString(string: UIDevice.currentDevice().systemVersion).doubleValue >= 8) {
@@ -618,24 +758,7 @@ class eventosViewController: UIViewController,UITableViewDelegate,UITableViewDat
         detalle.predicaoDia = predicao
         detalle.meetingApp = eventos
         self.navigationController?.pushViewController(detalle, animated: true)
-        }
-        else{
         
-            let evento = self.arraya.objectAtIndex(indexPath.row) as! Event
-            let detalle = self.storyboard?.instantiateViewControllerWithIdentifier("detalleViewController") as! detalleViewController
-            
-            if (NSString(string: UIDevice.currentDevice().systemVersion).doubleValue >= 8) {
-                
-                self.searchController.active = false
-                
-            }
-            
-            detalle.evento = evento
-            detalle.predicaoDia = predicao
-            detalle.meetingApp = eventos
-            self.navigationController?.pushViewController(detalle, animated: true)
-        
-        }
         }
     
     //métodos pa las celdas
@@ -665,17 +788,7 @@ class eventosViewController: UIViewController,UITableViewDelegate,UITableViewDat
             
             if personaUno.person.isDataAvailable() {
                 
-                var strUno = String()
-                
-                if personaUno.person.salutation == "" {
-                    
-                    strUno = "\(personaUno.person.firstName) \(personaUno.person.lastName)"
-                } else {
-                
-                    strUno = "\(personaUno.person.salutation) \(personaUno.person.firstName) \(personaUno.person.lastName)"
-                    
-                }
-
+                let strUno = "\(personaUno.person.salutation) \(personaUno.person.firstName) \(personaUno.person.lastName)"
                 strMutu.appendString(strUno)
             }
             
@@ -684,21 +797,8 @@ class eventosViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 let per = o.objectAtIndex(index) as! Actor
                 per.fetchFromLocalDatastoreInBackground()
                 if(per.person.isDataAvailable()){
-                    
-                    
-                    var strDos = String()
-                    
-                    if per.person.salutation == "" {
-                        
-                        strDos = "\n\(per.person.firstName) \(per.person.lastName)"
-                        
-                    } else {
-                        
-                        strDos = "\n\(per.person.salutation) \(per.person.firstName) \(per.person.lastName)"
-                        
-                    }
 
-                    
+                    let strDos = "\n\(per.person.salutation) \(per.person.firstName) \(per.person.lastName)"
                     strMutu.appendString(strDos)
                 }
             }
@@ -729,6 +829,30 @@ class eventosViewController: UIViewController,UITableViewDelegate,UITableViewDat
             searchController.active = false
         }
     }
+    
+    func animateTable() {
+        tabla.reloadData()
+        
+        let cells = tabla.visibleCells()
+        let tableHeight: CGFloat = tabla.bounds.size.height
+        
+        for i in cells {
+            let cell: UITableViewCell = i as! UITableViewCell
+            cell.transform = CGAffineTransformMakeTranslation(0, tableHeight)
+        }
+        
+        var index = 0
+        
+        for a in cells {
+            let cell: UITableViewCell = a as! UITableViewCell
+            UIView.animateWithDuration(0.5, delay: 0.05 * Double(index), usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: nil, animations: {
+                cell.transform = CGAffineTransformMakeTranslation(0, 0);
+                }, completion: nil)
+            
+            index += 1
+        }
+    }
+    
 }
 
 
@@ -737,7 +861,7 @@ extension eventosViewController: UISearchResultsUpdating
     func updateSearchResultsForSearchController(searchController: UISearchController)
     {
         
-        let searchPredicate = NSPredicate(format: "(title contains[cd] %@) OR (titleLg2 contains[cd] %@)", searchController.searchBar.text,searchController.searchBar.text)
+        let searchPredicate = NSPredicate(format: "(title contains[cd] %@) OR (titleLg2 contains[cd] %@) OR (titleLg3 contains[cd] %@)", searchController.searchBar.text,searchController.searchBar.text)
         let array = self.arraya.filteredArrayUsingPredicate(searchPredicate)
         if array.count == 0 {
             
@@ -760,3 +884,5 @@ extension eventosViewController: UISearchResultsUpdating
     
     
 }
+
+
